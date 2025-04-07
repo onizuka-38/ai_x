@@ -1,0 +1,6 @@
+To update anything:
+
+git add .
+git commit -m "second"
+git push -u origin main
+
