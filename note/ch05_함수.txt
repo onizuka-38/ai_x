@@ -15,4 +15,15 @@
 
   * 함수 정의시 매개변수 순서 *
 	순서인수 > 튜플인수 > 키워드 인수 > 딕셔너리 인수
+
 4절. 람다식
+	funcname = lambda 매개변수들 : 리턴값
+	funcname(매개변수들)
+	(lambda 매개변수들 : 리턴값)(매개변수들)
+      용도 = (1)함수의 매개변수 (2)함수의 return값
+         ex1. map(func, 가공될 vector)
+         ex2. filter(func, 추출될 vector)
+         ex3. sort(key=정렬 기준이 될 데이터를return할 함수, reverse=T/F)
+
+5절. 파이썬 내장 함수
+
