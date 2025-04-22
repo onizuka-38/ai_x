@@ -1,0 +1,3 @@
+홍길동, 20, kildong@hong.com, 서울시 관악구
+홍길숙, 25, kilsuk1@hong.com, 서울시 영등포구
+신길동, 30, shinkil@hong.com, 서울시 동작구

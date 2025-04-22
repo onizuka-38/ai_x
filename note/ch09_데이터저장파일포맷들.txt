@@ -1,0 +1,31 @@
+1. *.txt
+   김회원, 33, 아무동9
+   이회원, 22, 무시기동8	
+2. pickle파일(*.data) : 객체리스트 저장, (머신러닝모델저장용)
+3. *.csv
+   name,age,address
+   "김회원",33,"아무동9"
+   "이회원",22,"무시기동9"
+4. *.json
+   [ {'name':'김회원', 'age':33, 'address':'아무동9'},
+    {'name':'이회원', 'age':22, 'address':'무시기동9'}]
+5. *.h5이나 *.hdf5 (=>딥러닝 모델 저장)
+   HDVview로 읽을 수 있음
+6. *.xml
+<customer>
+	<name>김회원</name>
+	<age>33</age>
+	<address>아무동9</address>
+</customer>
+<customer>
+	<name>이회원</name>
+	<age>22</age>
+	<address>무시기동9</address>
+</customer>
+
+
+
+
+
+
+
