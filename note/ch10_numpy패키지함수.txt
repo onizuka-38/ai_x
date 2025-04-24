@@ -1,0 +1,14 @@
+Numpy 패키지 함수와 속성
+- 배열속성
+  dtype : 요소들의 type
+  itemsize : 한 요소의 bytesize
+  ndim : 차원수(축수)
+  size : 배열 요소 갯수
+  shape : 배열 구조(튜플)
+
+- 배열 생성 함수
+  np.arange(from,stop,step)
+
+- 배열 차원 변경
+  reshape()
+  ravel(), flatten() : 1차원 변경
