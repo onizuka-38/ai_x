@@ -27,3 +27,20 @@ Numpy 패키지 함수와 속성
 - 배열 차원 변경
   reshape()
   ravel(), flatten() : 1차원 변경
+
+- 두 배열을 합치는 함수
+- **vstack(tup) : 아래로 추가하는 방식**
+- **hstack(tup) : 옆으로 추가하는 방식**
+- **dstack(tup) : 마지막 출(열)을 쌓아 합침(차원증가)**
+
+- **column_stack(tup) : 열단위로 합침**
+- **row_stack(tup) : 행단위로 합침 == vstack(tup)**
+- **stack(tup, axis) : axis속성에 따라 배열합침 axis 음수차원 가능**
+
+np.r_[ [a], [b], [c] ] # 행 합치기
+np.c_[a, b, c] # 컬럼 쌓기
+
+배열 분리하는 함수
+- **vsplit(ary, 정수나 벡터) : 첫번째 축을 따라 분할**
+- **hsplit(ary, 정수나 벡터) : 두번째 축을 따라 분할**
+- **dsplit(ary, 정수나 벡터) : depth따라 나눔(3차원 이상에서만 동작)**
