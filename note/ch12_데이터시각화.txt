@@ -11,4 +11,9 @@
      barplot, barhplot(y의 평균으로 막대그래프), pointplot(y의 평균으로 line을 그림)
      countplot(count는 x의 빈도수가 높이)
      boxplot, violinplot, boxenplot
-     => catplot(서블플롯)
+     => catplot(서브플롯)
+3. 쌍관계 그래프 : 모든 수치형 변수에 대해 산점도
+4. 밀도그래프 : histplot, displot
+5. 회귀그래프 : regplot -> lmplot(서브플롯)
+
+4) 다중 그래프를 위한 FacetGrid
