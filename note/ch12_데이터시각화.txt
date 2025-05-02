@@ -1,0 +1,14 @@
+1) 데이터준비
+2) 미적속성설정 - sns.set(style='darkgrid',
+		       context='notebook', 배율
+		sns.set_style...
+3) 그래프 함수
+1. 관계형 그래프 : scatterplot, lineplot => relplot(서브플롯)
+
+2. 범주형 그래프
+    - x축이 범주형 데이터
+(ex) stripplot(무작위 흩뿌림), swarmplot(겹치치 않는 산점도)
+     barplot, barhplot(y의 평균으로 막대그래프), pointplot(y의 평균으로 line을 그림)
+     countplot(count는 x의 빈도수가 높이)
+     boxplot, violinplot, boxenplot
+     => catplot(서블플롯)
