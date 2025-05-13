@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <!-- 정규표현식
+            ? : 0번이나 1번반복
+            + : 1회이상 반복
+            * : 0회이상 반복
+            | : 또는
+            {2,} : 2회이상 반복
+            {m,n} : m회에서 n회 사이 반복
+            {n} : n회 반복
+            \d, [0-9] : 숫자
+            \D, 숫자가 아닌 것
+            \w, [a-zA-Z0-9] : 영문자나 숫자
+            가-힣 : 한글
+            . : \n을 제외한 문자
+            \. : .
+            [~`!@#$%^&*()\-\\_+={};:"'] : 특수 문자
+            (ex) 전화번호 : \d{2,3}-\d{3,4}-\d{4}
+                 이메일 : [a-zA-Z0-9가-힣]+@[a-zA-Z0-9]+(\.[a-zA-Z]+){1,2}
+
+            -->
+
+
+    <form>
+        <fieldset>
+            <legend>필수입력</legend>
+            <ul>
+                <li>
+                    <label for="tel">연락처 : </label>
+                    <input type="tel" name="tel" id="tel"
+                           required="required"
+                           placeholder="000-0000-0000/xx-xxx-xxxx"
+                           pattern="\d{2,3}-\d{3,4}-\d{4}"
+                           title="전화번호 형식이 맞지 않습니다.(000-0000-0000/xx-xxx-xxxx)"
+                           autofocus="autofocus" />
+                </li>
+                <li>
+                    <label for="email">이메일 : </label>
+                    <input type="email" name="email" id="email"
+                           pattern="[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{1,2}"
+                           title="이메일 형식이 맞지 않습니다." />
+                </li>
+            </ul>
+        </fieldset>
+        <p>
+            <center>
+                <input type="submit" value="입력완료" />
+                <input type="reset" value="입력취소" />
+            </center>
+        </p>
+    </form>
+
+</body>
+</html>

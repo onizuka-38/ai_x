@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function chk() {
+            // 한줄 주석
+            /*
+               여러줄 주석
+            */
+            if (frm.id.value.length < 3) {
+                alert('아이디는 3글자 이상 필수입력입니다');
+                frm.id.focus();
+                return false;
+            } else if (frm.pw.value.length < 3) {
+                alert('비밀번호는 3글자 이상 필수입력입니다');
+                frm.pw.focus();
+                return false;
+            } else if (frm.pw.value != frm.pwChk.value) {
+                alert('비밀번호를 확인하세요');
+                frm.pw.value = '';
+                frm.pwChk.value = '';
+                frm.pw.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form name="frm" onsubmit="return chk()">
+        <table>
+            <tr>
+                <td>아이디</td>
+                <td><input type="text" name="id" placeholder="3자리이상" /></td>
+            </tr>
+            <tr>
+                <td>비밀번호</td>
+                <td><input type="password" name="pw" placeholder="3자리이상" /></td>
+            </tr>
+            <tr>
+                <td>비밀번호</td>
+                <td><input type="password" name="pwChk" /></td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <input type="submit" value="가입" />
+                </th>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

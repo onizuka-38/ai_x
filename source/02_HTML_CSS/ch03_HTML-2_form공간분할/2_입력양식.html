@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+</head>
+<body>
+
+    <form action="">
+        <input type="hidden" name="hiddenparam" value="히든값" />
+        <table>
+
+            <tr>
+                <td>아이디</td>
+                <td>
+                    <input type="text" name="id" size="9"
+                           required="required"
+                           placeholder="필수입력사항(입력전에 보이는 도움말" />
+                    <input type="button" value="중복확인" />
+                </td>
+            </tr>
+            <tr>
+                <td>비밀번호</td>
+                <td>
+                    <input type="password" name="pw" />
+                </td>
+            </tr>
+            <tr>
+                <td>전화번호</td>
+                <td>
+                    <input type="tel" name="tel1" size="1" /> -
+                    <input type="tel" name="tel2" size="1" /> -
+                    <input type="tel" name="tel3" size="1" />
+                </td>
+            </tr>
+            <tr>
+                <td>경력</td>
+                <td>
+                    <input type="number" name="career" min="0" max="100" />년
+                </td>
+            </tr>
+            <tr>
+                <td>이메일</td>
+                <td>
+                    <input type="email" name="email" />
+                </td>
+            </tr>
+            <tr>
+                <td>사진</td>
+                <td>
+                    <input type="file" name="filename" />
+                </td>
+            </tr>
+            <tr>
+                <td>성별</td>
+                <td>
+                    <input type="radio" name="gender" value="m" checked="checked" />남
+                    <input type="radio" name="gender" value="f" />여
+                </td>
+            </tr>
+            <tr>
+                <td>사용언어</td>
+                <td>
+                    <input type="checkbox" name="lang" value="kor" checked="checked" />한국어
+                    <input type="checkbox" name="lang" value="eng" />영어
+                    <input type="checkbox" name="lang" value="chi" />중국어
+                </td>
+            </tr>
+            <tr>
+                <td>국적</td>
+                <td>
+                    <select name="nation">
+                        <option>대한민국</option>
+                        <option>인도</option>
+                        <option>중국</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>좋아하는 음식</td>
+                <td>
+                    <select name="food" multiple="multiple" size="3">
+                        <option>볶음밥</option>
+                        <option>비빔밥</option>
+                        <option>주먹밥</option>
+                        <option>덮밥</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>자기소개</td>
+                <td>
+                    <textarea name="intro" rows="3" cols="25"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>생년월일</td>
+                <td>
+                    <input type="date" name="birth" />
+                </td>
+            </tr>
+            <tr>
+                <td>본인 git url</td>
+                <td>
+                    <input type="url" name="git" />
+                </td>
+            </tr>
+            <tr>
+                <td>좋아하는 색상<br />좋아하는 정도</td>
+                <td>
+                    <input type="color" name="color" /><br />
+                    <input type="range" name="range" min="0" max="100" step="5" value="0" />
+                </td>
+            </tr>
+
+            <tr>
+                <th colspan="2">
+                    <input type="submit" value="입력" />
+                    <input type="reset" value="초기화" />
+                </th>
+            </tr>
+
+        </table>
+    </form>
+
+</body>
+</html>

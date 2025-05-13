@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        table{border-collapse:collapse;}
+        tr{
+              border-top: 2px solid green;
+              border-bottom: 2px solid green;
+        }
+        th,td {
+            background-color:white;
+            padding:5px 10px;
+        }
+    </style>
+    <script>
+        function chk() {
+            // submit 이 안 일어나는 조건 : name.value.length < 2, title.value 가 빈스트링
+            if (!frm.title.value) {
+                alert('글제목은 필수입력사항입니다');
+                frm.title.focus();
+                return false; // 이벤트 제한
+            }
+            else if (frm.name.value.length < 2) {
+                alert('작성자명은 2글자 이상입니다');
+                frm.name.focus();
+                return false; // submit 이벤트 제한
+            }
+            else if (!frm.context.value) {
+                alert('내용을 입력해 주세요');
+                frm.context.focus();
+                return false;
+            }
+            return true;
+        }
+
+    </script>
+</head>
+<body>
+    <form onsubmit="return chk()" name="frm">
+        <table>
+            <caption><h2>게시판</h2></caption>
+            <tr>
+                <td>제목</td>
+                <td>
+                    <input type="text" name="title" />                           
+                </td>         
+            </tr>
+            <tr>
+                <td>작성자</td>
+                <td>
+                    <input type="text" name="name" />
+                </td>
+            </tr>
+            <tr>
+                <td>본문</td>
+                <td>
+                    <textarea name="context" rows="5" cols="24"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>첨부파일</td>
+                <td>
+                    <input type="file" name="file" />
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <input type="submit" value="글쓰기" />
+                    <input type="reset" value="초기화" />
+                </th>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>

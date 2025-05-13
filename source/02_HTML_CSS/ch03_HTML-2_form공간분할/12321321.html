@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>회원가입</title>
+  <link rel="stylesheet" href="화면구현평가1.css" />
+  <script>
+    function chk() {
+      const f = document.forms["joinForm"];
+      if (f.name.value.length < 2) {
+        alert("이름은 2글자 이상 입력하세요.");
+        f.name.focus();
+        return false;
+      }
+      if (f.id.value.length < 4) {
+        alert("아이디는 4글자 이상 입력하세요.");
+        f.id.focus();
+        return false;
+      }
+      if (f.pw.value.length < 1) {
+        alert("비밀번호를 입력하세요.");
+        f.pw.focus();
+        return false;
+      }
+      if (f.pw.value !== f.pw2.value) {
+        alert("비밀번호가 일치하지 않습니다.");
+        f.pw2.focus();
+        return false;
+      }
+      const telRegex = /^(0(2|1[0-9]))-\d{3,4}-\d{4}$/;
+      if (!telRegex.test(f.tel.value)) {
+        alert("전화번호 형식이 올바르지 않습니다.");
+        f.tel.focus();
+        return false;
+      }
+      const emailRegex = /^[a-zA-Z가-힣][a-zA-Z0-9가-힣]*@[a-zA-Z]+\.(com|co\.kr)$/;
+      if (!emailRegex.test(f.email.value)) {
+        alert("이메일 형식이 올바르지 않습니다.");
+        f.email.focus();
+        return false;
+      }
+      return true;
+    }
+  </script>
+</head>
+<body>
+  <form name="joinForm" onsubmit="return chk()">
+    <h2 class="center">회원가입</h2>
+
+    <fieldset class="container">
+      <legend>필수입력</legend>
+      <table>
+        <tr>
+          <td>이 &nbsp; 름<span>*</span></td>
+          <td><input type="text" name="name" placeholder="이름은 2글자 이상" /></td>
+        </tr>
+        <tr>
+          <td>아이디<span>*</span></td>
+          <td><input type="text" name="id" placeholder="ID는 4글자 이상" /></td>
+        </tr>
+        <tr>
+          <td>비밀번호<span>*</span></td>
+          <td><input type="password" name="pw" /></td>
+        </tr>
+        <tr>
+          <td>비번확인<span>*</span></td>
+          <td><input type="password" name="pw2" /></td>
+        </tr>
+        <tr>
+          <td>전화<span>*</span></td>
+          <td>
+            <input type="text" name="tel" placeholder="xx-xxxx-xxxx/000-0000-0000" />
+          </td>
+        </tr>
+        <tr>
+          <td>이메일<span>*</span></td>
+          <td>
+            <input type="text" name="email" placeholder="id@domain.com또는.co.kr" />
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+
+    <fieldset class="container">
+      <legend>추가 입력 사항</legend>
+      <table>
+        <tr>
+          <td>결혼 유 무</td>
+          <td>
+            <input type="radio" name="marriage" value="기혼" />기혼
+            <input type="radio" name="marriage" value="미혼" />미혼
+          </td>
+        </tr>
+        <tr>
+          <td>자식</td>
+          <td>
+            <input type="checkbox" name="child" value="son" />아들
+            <input type="checkbox" name="child" value="daughter" />딸
+          </td>
+        </tr>
+        <tr>
+          <td>지역</td>
+          <td>
+            <select name="region">
+              <option>경기</option>
+              <option>서울</option>
+              <option>부산</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+
+    <div class="center">
+      <input type="submit" value="가입" />
+      <input type="reset" value="취소" />
+    </div>
+  </form>
+
+  <footer>
+    <p>서울시 서대문구 신촌로 141 은하빌딩 203호</p>
+    <p>Copyright ⓒ XX All rights reserved</p>
+  </footer>
+</body>
+</html>
