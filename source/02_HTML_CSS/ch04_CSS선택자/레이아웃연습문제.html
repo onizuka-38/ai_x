@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        /* * * 전체 레이아웃 잡기 * * */
+        #header, #content, #footer{
+            width:1000px; margin: 0 auto;
+            overflow:hidden;
+        }
+        .left, .right{
+            float:left;
+            width:150px; height:150px;
+            background-color:lightgray;
+            border:1px solid gray;
+        }
+        .center{
+            float:left;
+            width:693px; height: 150px;
+            background-color:lightgray;
+            border:1px solid gray;
+        }
+        #content > div { height:300px;}
+
+        #content #nav ul{
+            overflow:hidden;
+        }
+        #content a{
+            text-decoration:none;
+            color:black;
+            font-size:24px; 
+            font-weight:bold;
+        }
+        #academy h1{
+            margin:5px 5px 30px 5px;
+        }
+
+        #content #nav ul li {
+            list-style: none;
+            float: left;
+            text-align: center;
+            font-size: 20px;
+            width:190px;
+            margin: 5px;
+            padding: 5px;            
+        }
+
+        #content #academy{
+            text-align:center;
+            margin:10px;
+            padding:10px;
+        }
+        .right ol li:nth-child(10),
+        .right ol li:nth-child(11),
+        .right ol li:nth-child(12){
+            color:red;
+        }
+
+        #header .left {
+            border-radius: 20px 0 20px 0;
+        }
+        #header .center {
+            border-radius: 0 0 20px 20px;
+        }
+        #header .right {
+            border-radius: 0 20px 0 20px;
+        }
+        #content .left {
+            border-radius: 0 20px 20px 0;
+        }
+        #content .center {
+            border-radius: 20px;
+        }
+        #content .right {
+            border-radius: 20px 0 0 20px;
+        }  
+        #footer .left {
+            border-radius: 0 20px 0 20px;
+        }
+        #footer .center {
+            border-radius:20px 20px 0 0;
+        }
+        #footer .right {
+            border-radius: 20px 0 20px 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="left"></div>
+        <div class="center"></div>
+        <div class="right"></div>    
+    </div>
+    <div id="content">
+        <div class="left"></div>
+        <div class="center">
+            <div id="nav">
+                <ul>
+                    <li><a href="">menu1</a></li>
+                    <li><a href="">menu2</a></li>
+                    <li><a href="">menu3</a></li>
+                </ul>
+            </div>
+            <div id="academy">
+                <h1>AI 개발자 양성과정</h1>
+                <p>
+                    ‘박제가 되어 버린 천재’를 아시오?나는 유쾌하오. 이런 때 연애까지가 유쾌하오.육신이 흐느적흐느적하도록 피로했을 때만 정신이 은화(銀貨)처럼 맑소.니코틴이 내 횟배 앓는 뱃속으로 스미면 머릿속에 으레 백지가 준비되는 법이오.그 위에다 나는 위트와 패러독스를 바둑 포석처럼 늘어놓소. 가증할 상식의 병이오.
+                </p>
+            </div>
+        </div>
+        <div class="right">
+            <ol>
+                <li>태그</li>
+                <li>전체</li>
+                <li>id,class</li>
+                <li>속성</li>
+                <li>후손,자손</li>
+                <li>동위</li>
+                <li>반응</li>
+                <li>상태</li>
+                <li>구조</li>
+                <li>문자</li>
+                <li>링크</li>
+                <li>부정</li>
+            </ol>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="left"></div>
+        <div class="center"></div>
+        <div class="right"></div>
+    </div>
+</body>
+</html>

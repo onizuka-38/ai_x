@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        * { /* 전체 선택자==페이지 전체 태그 : 페이지 초기화 용도 */
+            margin:0; /* 밖여백(위,우,하,좌) */
+            padding:0; /* 안여백(위,우,하.좌) */
+            color: saddlebrown;
+        }
+        header, nav, section, footer{
+            width:500px; /* 가로사이즈(width를 지정하지 않으면 block형 태그는 부모 width를 따름) */
+            border:1px solid gray;
+            margin:1px auto;
+        }
+        nav ul { /* 수평으로 하고 픈 태그의 부모 */
+            overflow : hidden;
+        }
+        nav ul li { /* 수평으로 할 태그 */
+            float : left;
+            list-style : none;
+/*            border : 1px solid red;
+            margin : 10px 25px;*/
+            width:125px;
+            text-align:center;
+            margin : 10px 0;
+        }
+        section { /* 수평 속성을 지우고 싶은 태그 */
+            clear:both;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>00 주식회사</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>회사소개</li>
+            <li>서비스소개</li>
+            <li>고객센터</li>
+            <li>공지사항</li>
+        </ul>
+    </nav>
+    <section>
+        <p>
+            Integer egestas eu diam non facilisis. In hac habitasse platea dictumst. Nam aliquet convallis tristique. Pellentesque eleifend nisl in tempus accumsan. Aliquam porttitor, lacus sed pharetra scelerisque, ante magna lobortis mauris, quis venenatis est lectus et nisi. Donec ante sapien, molestie quis turpis quis, tristique fermentum odio. In iaculis vel massa vel laoreet.
+        </p>
+    </section>
+    <footer>
+        <p>서울시 땡땡구 뭐뭐로 99 무슨빌딩 901호</p>
+    </footer>
+
+</body>
+</html>

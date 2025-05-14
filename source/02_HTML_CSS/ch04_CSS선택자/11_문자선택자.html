@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #wrap {
+            width: 750px;
+            margin: 0 auto;
+        }
+
+        #header {
+            text-align: center;
+        }
+
+        #content {
+            border-top: 1px solid lightgray;
+            border-bottom: 1px solid lightgray;
+            text-align: justify;
+        }
+        #content p:nth-child(2)::first-line,
+        #content p:nth-child(3)::first-line{
+            font-weight:bold;
+            color:blue;
+        }
+        #content p:nth-child(2):first-letter,
+        #content p:last-child:first-letter{
+            font-size: 2.5em
+        }
+        #footer ul{overflow:hidden;} /* 부모단 */
+        #footer ul li{
+            float:left;
+            list-style:none;
+            padding:15px;
+        }
+        #footer ul li:first-child{
+            padding-top : 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <h1>제목이나 회사명</h1>
+        </div>
+        <div id="content">
+            <p>오후에 기온 오름. 덥다</p>
+            <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </p>
+            <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </p>
+        </div>
+        <div id="footer">
+            <ul>
+                <li><img src="ch04/logo.png" alt="고용부 로고" /></li>
+                <li><img src="ch04/address.png" alt="주소" /></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        div {
+            border:1px solid gray;
+        }
+        #header{ /* id선택자 : id앞에는 # */
+                 width:600px;
+                 margin:0 auto;
+                 background-color:yellow;
+                 text-align:center;
+        }
+        #wrap{
+            width:600px;
+            margin:0 auto;
+            overflow:hidden; /* 부모단에서 */
+            background-color:aqua;
+            text-align:center; /* 글씨나 img 가운데 정렬 */
+        }
+        #wrap #content{
+            width:348px; /*#content 영역 = 350 + 2 px*/
+            height:300px;
+            float:left; /* 수평으로 */
+        }
+        #wrap #content .odd{ /* class 선택자 : class앞에 . */
+            font-size: 1.5em; /* 글씨크기를 원래의 1.5배로 */
+        }
+
+        #wrap #content .menu1,
+        #wrap #content .menu2{
+            font-weight: bold; /* 글씨크기를 원래의 1.5배로 */
+        }
+
+
+        #wrap #banner{
+            width:248px;
+            height:300px;
+            float:left; /* 수평으로 */
+        }
+        #wrap #banner img {width:200px;}
+        #footer {
+            clear:both;
+            width:600px;
+            margin:0 auto;
+            background-color: yellow;
+            text-align:center;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>HEADER</h1>
+    </div>
+    <div id="wrap">
+        <div id="content">
+            <h2>content</h2>
+            <ul>
+                <li class="menu1 odd">menu1</li>
+                <li class="menu2 ">menu2</li>
+                <li class="menu3 odd">menu3</li>
+                <li class="menu4 ">menu4</li>
+                <li class="menu5 odd">menu5</li>
+
+            </ul>
+        </div>
+        <div id="banner">
+            <h2>BANNER</h2>
+            <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=Python&logoColor=white" />
+        </div>
+    </div>
+    <div id="footer">
+        <h1>FOOTER</h1>
+    </div>
+
+</body>
+</html>

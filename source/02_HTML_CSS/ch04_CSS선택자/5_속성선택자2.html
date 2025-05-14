@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        div#wrap{
+            width: 300px;
+            margin: 0 auto;
+        }
+        #header{
+            color:orange;
+            text-align:center;
+        }
+
+        #wrap #section{
+            border-top: 1px solid gray;
+            border-bottom: 1px solid gray;
+        }
+
+        #wrap #section h4[title^='남자']{
+            background:url('ch04/man.png') no-repeat;
+            padding: 0 0 0 30px; /*안여백 상우하좌*/
+        }
+        #wrap #section h4[title^='여자']{
+            background:url('ch04/woman.png') no-repeat;
+            padding-left:30px; /*좌측 안여백*/
+        }
+        #wrap #section p{text-align:center;}
+        #wrap #section p a{
+            color:darkgreen;
+            text-decoration:none; /*a태그 밑줄 none*/
+        }
+        #wrap a[href$='docx'], #wrap a[href$='doc']{
+            background :url(ch04/word.png) right no-repeat;
+            padding-right: 30px;
+        }
+        #wrap a[href$='xlsx'], #wrap a[href$='xls'] {
+            background: url(ch04/excel.png) right no-repeat;
+            padding-right: 30px;
+        }
+        #wrap #footer{
+            text-align:center;
+            color:gray;
+            font-size:.8em; /*원래 글씨 사이즈의 0.8배*/
+        }
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <h1>객실안내</h1>
+        </div>
+        <div id="section">
+            <h4 title="남자 도미토리">남자 도미토리</h4>
+            <ul>
+                <li>공동취사실 및 욕실사용</li>
+                <li>1인 20,000원(비수기)</li>
+            </ul>
+            <h4 title="여자 도미토리">여자 도미토리</h4>
+            <ul>
+                <li>취사 기구 완비 실내 욕실사용</li>
+                <li>1인 30,000원(비수기)</li>
+            </ul>
+            <p><a href="ch04/intro.docx">유의사항 다운로드</a></p>
+            <p><a href="ch04/intro.xlsx">객실자료 다운로드</a></p>
+        </div>
+        <div id="footer">
+            <p>서울시 관악구</p>
+        </div>
+    </div>
+</body>
+</html>
