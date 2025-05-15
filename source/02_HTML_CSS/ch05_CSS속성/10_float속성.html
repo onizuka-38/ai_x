@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #container {
+            width: 400px;
+            margin: 0 auto;
+        }
+        #container > div {
+            border: 5px solid gray;
+            overflow:hidden; /* float할 부모단 */
+        }
+        #container .first, #container .second{
+            width:100px; height: 100px;
+            border:3px solid red;
+            margin:10px;
+            box-sizing: border-box;
+        }
+        #container #row1 > div {float:left;}
+        #container #row2 > div {float:right;}
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="row1">
+            <div class="first">first</div>
+            <div class="second">second</div>
+        </div>
+        <div id="row2">
+            <div class="second">second</div>
+            <div class="first">first</div>
+        </div>
+    </div>
+</body>
+</html>

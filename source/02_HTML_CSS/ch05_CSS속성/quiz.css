@@ -1,0 +1,96 @@
+﻿/* quiz.css */
+*{margin:0; padding:0;
+  box-sizing:border-box;
+  
+}
+
+
+#container {
+    width: 800px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid gray;
+    box-sizing:border-box;
+}
+
+#header, #footer {
+    height: 100px;
+    background-color: yellow;
+    border: 1px solid gray;
+    text-align: center;
+    line-height: 100px;
+    font-weight: bold;
+}
+#container #nav {
+    margin: 10px 0 10px 0;
+    height: 100px;
+    text-align: center;
+    border: 1px solid gray;
+    padding:10px;
+}
+#nav ul {
+    overflow: hidden;
+    display: inline-block;
+    margin-top:10px;
+}
+
+#nav ul li {
+    list-style: none;
+    padding: 10px;
+    text-align: center; /* 글씨나 img 가운데 정렬 */
+    font-weight: bold; /* 글씨 진하게 */
+    margin: 2px;
+    float: left;
+    width: 130px;
+    background-color:lightpink;
+    text-align:center;
+}
+#nav ul li a{
+    color:purple;
+    text-decoration:none;
+    display:block;
+}
+#nav ul li:first-child{
+    border-radius: 20px 0 0 20px;
+}
+
+#nav ul li:last-child {
+    border-radius: 0 20px 20px 0;
+}
+#section {
+    display: flex;
+    margin: 10px 0 10px 0;
+    border: 1px solid gray;
+}
+
+#content {
+    flex: 3;
+    height: 300px;
+    border: 1px solid gray;
+    text-align: center;
+    padding-top:10px;
+    margin:10px 5px 10px 10px;
+}
+
+#banner {
+    flex: 1;
+    height: 300px;
+    border: 1px solid gray;
+    text-align: center;
+    padding-top: 10px;
+    margin:10px 10px 10px 5px;
+}
+
+#background_img {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: url('ch05/sulhyun.jpg') no-repeat;
+    background-size: 100%;
+    z-index: -9999;
+    opacity: 0.3;
+}

@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        div{width:100px; height:100ox; border:1px solid black;
+            font-weight:bold; /* 글씨 진하게 */
+        }
+        /* display속성은 block,  */
+        div:nth-child(1){display:block; background-color:red;}
+        div:nth-child(2){background-color:green; margin:10px;}
+        div:nth-child(3){display:none;} /* 안보이게(공간도없어짐) */
+        div:nth-child(4){background-color:blue;}
+        div:nth-child(5){display:inline; margin:10px;} /*inline은 위아래 여백 무시*/
+        div:nth-child(6){background-color:red; display:inline-block;}
+        div:nth-child(7){background-color:yellowgreen; display:inline-block;}
+    </style>
+</head>
+<body>
+    <div>div1</div><div>div2</div><div>div3</div><div>div4</div><div>div5</div><div>div6</div><div>div7</div><div>div8</div>
+
+</body>
+</html>

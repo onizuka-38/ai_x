@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #yellow{
+            width:300px; height:300px;
+            margin:0 auto;
+            background-color:yellow;
+            position:relative; /* 상대좌표 */
+            top:50px;
+        }
+
+        #yellow > div{
+            width:100px; height:100px; border:1px solid gray;
+
+        }
+        #green{
+            background-color:green;
+            position:absolute;
+            top:50px; left:50px;
+            z-index:9;
+        }
+        #red{
+            background-color:red;
+            position:absolute;
+            top:40px; right:100px;
+            z-index:8;
+        }
+    </style>
+</head>
+<body>
+    <div id="yellow">
+        yellow
+        <div id="green">green</div>
+        <div id="red">red</div>
+    </div>
+
+</body>
+</html>

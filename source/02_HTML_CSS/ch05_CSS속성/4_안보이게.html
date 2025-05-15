@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #visibility > div, #display > div{
+            width:100px; height:100px; background-color:red;
+        }
+        /* 안보이게 */
+        #visibility div:nth-child(2){visibility:hidden;} /* 안보이게(공간은 확보) */
+        #display div:nth-child(2){display:none;} /* 안보이게(공간도 안보이게) */
+        /* 투명도 0(완전투명) <= opacity <= 1(완전불투명) */
+        #visibility div:last-child{opacity:0.2;}
+        #display div:first-child{opacity:0.7;}
+        #display div:last-child{opacity:1;}
+    </style>
+</head>
+<body>
+    <div id="visibility">
+        <div>기본은불투명</div><div>안보이게</div><div>거의투명</div>
+    </div>
+    <div id="display">
+        <div>반투명</div><div>안보이게</div><div>불투명</div>
+    </div>
+
+</body>
+</html>
