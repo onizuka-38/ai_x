@@ -1,0 +1,98 @@
+﻿/* css/header.css */
+@font-face { /* 폰트설정 */
+    font-family: 'Merriweather-Light';
+    src: url('../font/Merriweather-Light.ttf');
+}
+@font-face {
+    font-family: 'Merriweather-Regular';
+    src: url('../font/Merriweather-Regular.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Merriweather-Regular';
+}
+a{
+    text-decoration:none;
+    color:black;
+    display:block;
+}
+li{list-style:none;}
+
+/* * * header 부분 * * */
+/* * * header .gnb 부분 * * */
+header .gnb{
+    min-width:1000px;
+    background-color:black;
+    overflow:hidden;
+}
+header .gnb ul{
+    width:1000px; margin :0 auto;
+
+}
+header .gnb ul li{
+    float:left;
+    width:8%; margin:0 1%;
+    text-align:center;
+    line-height:30px;
+    /*border:2px solid yellow;*/ /* 확인용 */
+    /*box-sizing:border-box;*/
+}
+header .gnb a {
+    color:white;
+}
+
+/* * * header .logo 부분 * * */
+header .logo {
+    width: 100px;
+    margin: 30px auto;
+    border: 1px solid gray;
+    text-align: center;
+    font-size: 2em;
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    padding:15px 45px;
+}
+
+/* * * header .hitmenu 부분 * * */
+header .hitmenu{
+    overflow:hidden;
+}
+header .hitmenu ul{
+    width:1000px; margin:0 auto;
+
+}
+header .hitmenu ul li{
+    float:right;
+    text-align:center;
+    width:70px;
+    padding:10px;
+    border:1px solid black;
+    margin:5px 0;
+}
+header .hitmenu ul li:first-child{
+    border-radius:0 10px 10px 0;
+}
+header .hitmenu ul li:last-child{
+    border-radius:10px 0 0 10px;
+}
+
+/* * * header .lnb 부분 * * */
+header .lnb {
+    overflow: hidden;
+    border-top: 1px dashed gray;
+    border-bottom: 1px dashed gray;
+}
+header .lnb ul {
+    width: 1000px;
+    margin: 0 auto;
+
+}
+header .lnb ul li{
+    float:left;
+    width:10.5%; margin:0 1%;
+    text-align:center;
+    line-height:30px;
+    font-weight:bold;
+}
