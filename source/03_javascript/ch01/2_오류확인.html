@@ -9,9 +9,14 @@
     </style>
     <script>
         al_pha = 20;
-        alert('al_pha 값은' + al-pha); //고의적인 error
+        alert(1); // submit이 이루어진 이후라서 F12를 눌러도 에러를 볼 수 없는 경우
+        alert('al_pha 값은' + al-pha); //고의적인 error - console탭 확인
+        alert(2);
         al_pha = 'Hello';
+        alert(3);
         alert('al_pha 값은' + al_pha);
+        alert(4);
+
     </script>
 </head>
 <body>
