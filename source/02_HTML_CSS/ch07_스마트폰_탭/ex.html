@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+        maximum-scale=2.0, minimum-scale=0.7, user-scalable=yes" />
+    <title></title>
+    <style>
+            /* user-scalable=no의 확대방지가 100% 보장되지 않음*/
+            /*body{
+          touch-action:none;
+          overflow:hidden;
+        }*/
+            /* * * 페이지 초기화 * * */
+            *{
+                margin:0; padding:0;
+                font-family:'Arial Rounded MT', sans-serif;
+            }
+            li{list-style:none;}
+            a{text-decoration:none; display:block; color:navy;}
+
+            /* * * header * * */
+            header {
+                background-color: #ea8f00;
+                height:100px;
+            }
+            /* * * header의 #logo_wrap * * */
+            header #logo_wrap{
+                height:50px; line-height:50px; text-align:center;
+                position:relative;
+            }
+            header #logo_wrap .menu{
+                position:absolute;
+                left:0; top:0;
+            }
+            header #logo_wrap .logo{
+                color:white;
+                font-size:1.5em;
+                font-weight:bold;
+            }
+            header #logo_wrap .myinfo{
+                position:absolute;
+                right:0; top:0;
+            }
+            /* * * header의 #search * * */
+            header #search{
+                height:50px;
+                position:relative;
+            }
+            header #search input[type='text']{
+                width:100%;
+                height:50px;
+                border:3px solid #ea8f00;
+                outline:0;
+                box-sizing:border-box;
+                font-size:1.2em;
+                padding: 5px 55px 5px 5px;
+            }
+            header #search input[type='submit']{
+                width:50px; height:50px;
+                background:url('img/search.png');
+                position:absolute;
+                right:0; top:0;
+                border:0;
+
+            }
+            /* * * #lnb * * */
+            #toggle{display:none;}
+            #toggle:checked ~ #lnb{display:block;}
+            #lnb{
+                margin:7px 0;
+                overflow:hidden;
+                display:none;
+            }
+            #lnb ul li{
+                float:left;
+                width: 16.66%;
+                border-right: 2px solid #ea8f00;
+                box-sizing:border-box;
+                line-height:30px; text-align:center;
+            }
+            #lnb ul li:last-child{border:0;}
+
+            /* * * #section1 * * */
+            #section1{ margin: 7px 0;}
+            #section1 .row1,
+            #section1 .row2,
+            #section1 .row3{overflow:hidden;}
+            #section1 .row1 > div,
+            #section1 .row2 > div,
+            #section1 .row3 > div{
+              float:left;
+              width:50%;height:120px;
+              border:2px solid white;
+              box-sizing:border-box;
+            }
+            #section1 img{
+                width:100%;
+                height:120px;
+                object-fit:fill; /* 높이가 120px 이하일 경우 120px을 줌 */
+            }
+
+            /* * * #section2 * * */
+            #section2{margin:7px;}
+            #section2 ul li a{
+                border:1px solid gray;
+                padding:7px;
+                /* 말줄임 태그(ellipsis)-block형 태그 */
+                white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+            }
+            /* * * #section3 * * */
+            #section3{margin:5px 0;}
+            #section3 ul li{
+                border:1px solid gray;
+                margin:5px; padding:10px;
+                position:relative;
+                height:110px;
+            }
+            #section3 ul li p.img{/* position으로 배치 */
+                position:absolute;
+                left:10px;
+                top:10px;
+
+            }
+            #section3 ul li p.txt{/* 100% 사용(padding-left를 120px) */
+                padding-left:120px;
+            }
+            #section3 ul li p.txt span:first-child{
+                /* 말줄임 */
+                display:block;
+                white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+                color:navy;
+                font-weight:bold; font-size:1.3em;
+            }
+            /* * * footer * * */
+            footer{
+                background-color: #ea8f00;
+                text-align:center;
+
+            }
+            footer p:last-child{
+                margin-bottom:10px;
+                font-size:.8em;
+                color:#222222;
+            }
+
+
+    </style>
+</head>
+<body>
+    <input type="checkbox" id="toggle" />
+    <header>
+        <div id="logo_wrap">
+            <label for="toggle">
+                <img src="img/menu.png" class="menu" />
+            </label>
+            <a href="ex.html" class="logo">mobile logo</a>
+            <img src="img/myinfo.png" class="myinfo" />
+        </div>
+        <div id="search">
+            <form>
+                <input type="text" name="query_word" />
+                <input type="submit" value="" />
+            </form>
+        </div>
+    </header><!-- header 끝 -->
+    <div id="lnb">
+        <ul>
+            <li><a href="#">lnb1</a></li>
+            <li><a href="#">lnb2</a></li>
+            <li><a href="#">lnb3</a></li>
+            <li><a href="#">lnb4</a></li>
+            <li><a href="#">lnb5</a></li>
+            <li><a href="#">lnb6</a></li>
+        </ul>
+    </div><!-- #lnb -->
+    <section>
+        <div id="section1">
+            <div class="row1">
+                <div>
+                    <a href="https://www.khan.co.kr/article/202505190626001">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/BBC_News_2022_%28Alt%2C_boxed%29.svg/250px-BBC_News_2022_%28Alt%2C_boxed%29.svg.png" alt="1행1열" />
+                    </a>
+                </div>
+                <div>
+                    <a href="https://n.news.naver.com/article/016/0002472917?cds=news_media_pc&type=editn">
+                        <img src="https://imgnews.pstatic.net/image/016/2025/05/19/0002472917_001_20250519095712560.jpg?type=w860" alt="1행2열" />
+                    </a>
+                </div>
+            </div>
+            <div class="row2">
+                <div>
+                    <a href="https://n.news.naver.com/article/018/0006018042">
+                        <img src="https://imgnews.pstatic.net/image/018/2025/05/19/0006018042_001_20250519102416256.gif?type=w860" alt="2행1열" />
+                    </a>
+                </div>
+                <div>
+                    <a href="https://n.news.naver.com/article/214/0001424781?type=journalists">
+                        <img src="https://imgnews.pstatic.net/image/214/2025/05/17/0001424781_001_20250517174113928.jpg?type=w860" alt="2행2열" />
+                    </a>
+                </div>
+            </div>
+            <div class="row3">
+                <div>
+                    <a href="https://n.news.naver.com/article/366/0001077738?type=journalists">
+                        <img src="https://imgnews.pstatic.net/image/366/2025/05/16/0001077738_001_20250516143408244.jpg?type=w860" alt="2행1열" />
+                    </a>
+                </div>
+                <div>
+                    <a href="https://n.news.naver.com/mnews/article/016/0002472572">
+                        <img src="https://imgnews.pstatic.net/image/016/2025/05/18/0002472572_001_20250518092314023.jpg?type=w860" alt="2행2열" />
+                    </a>
+                </div>
+            </div>
+        </div><!-- #section1 끝 -->
+        <div id="section2">
+            <ul>
+                <li>
+                    <a href="https://n.news.naver.com/mnews/article/018/0006018046">
+                        파수, 美 데이터 보안 행사 참가…"AI 데이터 통합 관리해야, 파수, 美 데이터 보안 행사 참가…"AI 데이터 통합 관리해야"
+                    </a>
+                </li>
+                <li>
+                    <a href="https://n.news.naver.com/article/018/0006017533?iid=64">
+                        또 파월 때린 트럼프 "연준 늦기 전에 금리 인하" 압박
+                    </a>
+                </li>
+                <li>
+                    <a href="https://n.news.naver.com/article/018/0006017497?iid=64">
+                        美 불확실성 커지자…국내 기업, 속속 유럽시장 공략
+                    </a>
+                </li>
+                <li>
+                    <a href="https://n.news.naver.com/article/018/0006017963">
+                        동탄호수공원서 흉기난동 벌인 40대 중국교포, 긴급체포
+                    </a>
+                </li>
+            </ul>
+        </div><!-- #section2 끝 -->
+        <div id="section3">
+            <ul>
+                <li>
+                    <p class="img"><img src="http://dummyimage.com/100x100" /></p>
+                    <p class="txt">
+                        <span>
+                            첫번째 span은 말줄임(한줄만 출력되고 나머지 부분은 생략)을 할 예정입니다.
+                            말줄임 태그를 위해 block타입으로 전환할 예정입니다
+                        </span>
+                        <span>
+                            두번째 span은 말줄임 안 할 예정입니다. inline 타입 그대로 적용
+                        </span>
+                    </p>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <p class="img"><img src="http://dummyimage.com/100x100" /></p>
+                    <p class="txt">
+                        <span>
+                            첫번째 span은 말줄임(한줄만 출력되고 나머지 부분은 생략)을 할 예정입니다.
+                            말줄임 태그를 위해 block타입으로 전환할 예정입니다
+                        </span>
+                        <span>
+                            두번째 span은 말줄임 안 할 예정입니다. inline 타입 그대로 적용
+                        </span>
+                    </p>
+                </li>
+            </ul>
+        </div><!-- #section3 끝 -->
+    </section><!-- section -->
+    <footer>
+        <p><img src="img/logo.png" alt="회사로고"/></p>
+        <p>서울시 XX구 XX동 XX빌딩 901호</p>
+    </footer>
+</body>
+</html>

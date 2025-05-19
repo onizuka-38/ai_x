@@ -1,0 +1,22 @@
+#wrap{
+    width:0 auto;
+    margin: 0 auto;
+    border: 1px solid gray;
+    padding: 10px;
+}
+#wrap .title{
+    text-align: center;
+    text-decoration: underline;
+    margin: 30px;
+
+}
+#wrap hr{
+    border: 1px solid red;
+}
+
+.ancizar-serif {
+  font-family: "Ancizar Serif", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}

@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+        /* * * * * * * * * 페이지 초기화 * * * * * * * * */
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            border: 0;
+        }
+        /* * * * * * * * * header #logo_wrap * * * * * * * * */
+        header {
+            height: 100px;
+            background-color: #ea8f00;
+        }
+
+            header #logo_wrap {
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                position: relative;
+            }
+
+                header #logo_wrap .menu {
+                    position: absolute;
+                    left: 10px;
+                    top: 0;
+                }
+
+                header #logo_wrap .myinfo {
+                    position: absolute;
+                    right: 10px;
+                    top: 0;
+                }
+
+                header #logo_wrap a.logo {
+                    font-size: 1.5em;
+                    font-weight: bold;
+                    color: white;
+                }
+            /* * * * * * * * * header #search * * * * * * * * */
+            header #search {
+                position: relative;
+            }
+
+                header #search input[type=text] {
+                    width: 100%;
+                    height: 50px;
+                    line-height: 50px;
+                    border: 5px solid #ea8f00;
+                    box-sizing: border-box;
+                    font-size: 1.2em;
+                    padding: 5px 55px 5px 5px;
+                    outline: none;
+                }
+
+                header #search img {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                }
+        /* * * * * * * * * #lnb * * * * * * * * */
+        #lnb ul {
+            overflow: hidden;
+            margin: 7px 0;
+        }
+
+            #lnb ul li {
+                float: left;
+                width: 16.66666%;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                border-right: 1px solid #ea8f00;
+                box-sizing: border-box;
+            }
+
+                #lnb ul li:last-child {
+                    border: 0;
+                }
+
+                #lnb ul li a {
+                    display: block;
+                    font-size: 1.3em;
+                    font-weight: bold;
+                }
+
+        /* * * * * * * * * section #section1 * * * * * * * * */
+        section #section1 .row1, section #section1 .row2, section #section1 .row3 {
+            overflow: hidden;
+        }
+
+            section #section1 .row1 div,
+            section #section1 .row2 div,
+            section #section1 .row3 div {
+                float: left;
+                width: 50%;
+                height: 135px;
+                border: 1px solid white;
+                box-sizing: border-box;
+            }
+
+        section #section1 img {
+            width: 100%;
+            height: 100%;
+        }
+        /* * * * * * * * * section #section2 * * * * * * * * */
+        section #section2 {
+            margin: 10px 5px;
+        }
+
+            section #section2 ul li {
+                padding: 8px;
+                border: 1px solid lightgray;
+                /*말줄임(ellipsis) 태그*/
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            section #section2 a {
+                color: black;
+            }
+        /* * * * * * * * * section #section3 * * * * * * * * */
+        section #section3 ul li {
+            overflow: hidden;
+            border: 1px solid lightgray;
+            margin: 5px;
+            padding: 10px;
+        }
+
+            section #section3 ul li p.img {
+                float: left;
+                width: 20%;
+                margin-right: 3%;
+            }
+
+        section #section03 ul li p.img img {
+            width: 100%;
+            height: 100%;
+        }
+
+        section #section3 ul li p.txt {
+            float: left;
+            width: 77%;
+        }
+
+            section #section3 ul li p.txt span:first-child {
+                color: darkblue;
+                font-weight: bold;
+                font-size: 1.2em;
+                display: block;
+                /*말줄임(ellipsis) 태그*/
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            section #section3 ul li p.txt span:last-child {
+                font-size: .8em;
+            }
+        /* * * * * * * * * footer * * * * * * * * */
+        footer {
+            background-color: #ea8f00;
+            text-align: center;
+        }
+
+            footer p:nth-child(1) {
+                padding: 5px;
+            }
+
+            footer p:nth-child(2) {
+                height: 30px;
+                line-height: 20px;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="logo_wrap">
+            <img src="imgEx02/menu.png" class="menu" />
+            <a href="ex02.html" class="logo">mobile logo</a>
+            <img src="imgEx02/myinfo.png" class="myinfo" />
+        </div>
+        <div id="search">
+            <input type="text" name="query_word" />
+            <img src="imgEx02/search.png" />
+        </div>
+    </header>
+    <div id="lnb">
+        <ul>
+            <li><a href="#">lnb1</a></li>
+            <li><a href="#">lnb2</a></li>
+            <li><a href="#">lnb3</a></li>
+            <li><a href="#">lnb4</a></li>
+            <li><a href="#">lnb5</a></li>
+            <li><a href="#">lnb6</a></li>
+        </ul>
+    </div>
+    <section>
+        <div id="section1">
+            <div class="row1">
+                <div><a href="#a1"><img src="http://placehold.it/100x200" alt="1행1열" /></a></div>
+                <div><a href="#a2"><img src="http://placehold.it/200x200" alt="1행2열" /></a></div>
+            </div>
+            <div class="row2">
+                <div><a href="#a2"><img src="http://placehold.it/300x200" alt="1행1열" /></a></div>
+                <div><a href="#a1"><img src="http://placehold.it/400x200" alt="1행2열" /></a></div>
+            </div>
+            <div class="row3">
+                <div><a href="#a1"><img src="http://placehold.it/500x200" alt="1행1열" /></a></div>
+                <div><a href="#a2"><img src="http://placehold.it/600x200" alt="1행2열" /></a></div>
+            </div>
+        </div>
+        <div id="section2">
+            <ul>
+                <li><a href="#">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</a></li>
+                <li><a href="#">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</a></li>
+                <li><a href="#">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</a></li>
+                <li><a href="#">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</a></li>
+            </ul>
+        </div>
+        <div id="section3">
+            <ul>
+                <li>
+                    <p class="img"><a href="#"><img src="http://placehold.it/100x100" /></a></p>
+                    <p class="txt">
+                        <span>전체적인 레이아웃을 제작할 때 필요한 가상의 이미지</span>
+                        <span>웹 사이트를 제작할 때 몰라도 되지만 알면 편한 많은 사이트들이 있습니다</span>
+                    </p>
+                </li>
+                <li>
+                    <p class="img"><a href="#"><img src="http://placehold.it/100x100" /></a></p>
+                    <p class="txt">
+                        <span>전체적인 레이아웃을 제작할 때 필요한 가상의 이미지</span>
+                        <span>웹 사이트를 제작할 때 몰라도 되지만 알면 편한 많은 사이트들이 있습니다</span>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <footer>
+        <p><img src="imgEx02/logo.png" /></p>
+        <p>서울시 XX구 XX동 000 XX빌딩 803호</p>
+    </footer>
+</body>
+</html>

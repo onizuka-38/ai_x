@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <title></title>
+    <style>
+        /*** 페이지 초기화 ***/
+        *{margin: 0; padding: 0;}
+        li{list-style: none;}
+        a{
+            text-decoration: none; color: black; font-weight: bold; display: block;
+        }
+
+        /*** 공통 ***/
+        #wrap{
+            border: 1px solid gray;
+            box-sizing: border-box;
+            text-align: justify;
+        }
+        #wrap #header{
+            height: 100px; line-height: 100px; text-align: center;
+            border: 1px solid gray;
+            box-sizing: border-box;
+        }
+
+        #wrap #nav ul{overflow: hidden;}
+        #wrap #nav ul li{
+            float: left;
+            height: 60px; line-height: 60px; text-align: center;
+            border: 1px solid gray;
+            box-sizing: border-box;
+        }
+        #content{padding: 10px;}
+        #footer{
+            line-height: 100px; text-align: center;
+            background-color: lightgray;
+        }
+
+        /*** pc용 ***/
+        @media screen and (min-width:1501px){
+            #wrap{
+                width:700px; margin: 0 auto;
+            }
+            #wrap #nav ul li{width:20%;}
+        }
+
+        
+
+        /*** tab용 ***/
+        @media screen and (min-width:1001px) and (max-width:1500px) {
+            #wrap{
+                width: 99%; margin: 0.5%;
+                background-color: lightgreen;
+                font-size: 1.1em;
+            }
+            #wrap #nav ul li{width: 25%;}
+            #wrap #nav ul li:nth-child(4){display: none;}
+        }
+
+        /*** 스마트폰용 ***/
+        @media screen and (max-width:1000px){
+            #wrap{
+                background-color: lightpink;
+                font-size: 1.2em;
+            }
+            #wrap #nav ul li{width: 33%;}
+            #wrap #nav ul li:nth-child(2), #wrap #nav ul li:nth-child(4){
+                display: none;
+            }
+
+        }
+        
+    </style>
+    <script>
+        
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header"><h1>반응형 웹</h1></div>
+        <div id="nav">
+            <ul>
+                <li><a href="#">menu1</a></li>
+                <li><a href="#">menu2</a></li>
+                <li><a href="#">menu3</a></li>
+                <li><a href="#">menu4</a></li>
+                <li><a href="#">menu5</a></li>
+            </ul>
+        </div>
+        <div id="content">
+            <h2>Title : Lorem Ipsum</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc hendrerit justo ac mollis maximus. Sed dictum placerat cursus. Sed a quam sed purus blandit fringilla vitae non lacus. Maecenas volutpat convallis molestie. Pellentesque feugiat diam dolor, non ullamcorper nulla laoreet at. Maecenas pretium porttitor turpis, vitae tristique diam bibendum quis. Sed eu finibus nisl. Quisque blandit venenatis turpis eleifend tincidunt. Cras eleifend accumsan libero finibus fringilla. Fusce pellentesque velit ut commodo condimentum. Integer lobortis ornare odio, at faucibus nunc. Mauris vehicula, ipsum a pellentesque egestas, magna dolor laoreet turpis, et finibus elit diam ac metus. Donec a ullamcorper augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nunc justo, aliquam non dolor eget, semper pellentesque arcu.</p>
+        </div>
+        <div id="footer">홍길동 주식회사</div>
+    </div>
+    
+</body>
+</html>
