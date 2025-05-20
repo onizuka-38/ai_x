@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <style>
+      body > div {
+        border: 1px solid gray;
+        width: 500px;
+      }
+      label,
+      input {
+        overflow: hidden;
+        display: block;
+        margin: 10px;
+        padding: 10px;
+      }
+      #result {
+        text-align: center;
+      }
+      
+    </style>
+    
+  </head>
+  <body>
+    <div>
+      <label>첫번째 수</label>
+      <input type="text" id="first" />
+
+      <label>두번째 수</label>
+      <input type="text" id="second" />
+
+      <input type="submit" value="결과" />
+    </div>
+    <h2></h2>
+  </body>
+
+  <script>
+      let first = prompt("첫번째 수를 입력하세요");
+      let second = prompt("두번째 수를 입력하세요");
+
+      let num1 = Number(first);
+      let num2 = Number(second);
+
+      if (isNaN(num1) || isNaN(num2)) {
+        alert("숫자를 올바르게 입력하세요");
+      } else if (num1 > num2) {
+        alert("첫번째 수가 " + (num1 - num2) + "만큼 더 큽니다");
+        document.write("첫번째 수가 " + (num1 - num2) + " 큽니다");
+      } else if (num2 > num1) {
+        alert("두번째 수가 " + (num2 - num1) + "만큼 더 큽니다");
+        document.write("두번째 수가 " + (num2 - num1) + " 큽니다");
+      } else {
+        alert("두 수는 같습니다");
+        document.write("두 수는 같습니다");
+      }
+    </script>
+</html>

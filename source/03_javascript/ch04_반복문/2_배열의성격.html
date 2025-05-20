@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <style></style>
+    <script>
+      // 자바스크립트에서의 배열의 크기가 가변적. 자료의 집합
+      var arr = [2, 4, "홍길동", true, function(){alert(1);}, [1,2] ];
+      document.write('arr의 타입 :' + typeof(arr) + '/ 값:' + arr + '<br>');
+      document.write('arr 방의 갯수 :' + arr.length + '<br>');
+      document.write(0 + ':' + arr[0] + '<br>');
+      document.write(1 + ':' + arr[1] + '<br>');
+      document.write(2 + ':' + arr[2] + '<br>');
+      document.write(3 + ':' + arr[3] + '<br>');
+      document.write(4 + ':' + arr[4] + '<br>');
+      document.write(5 + ':' + arr[5] + '<br>');
+      document.write(6 + ':' + arr[6] + '<br>');
+      arr.push('6번 인덱스의 값 추가'); // arr 배열 끝번 방에 데이터 추가
+      document.write('arr의 타입 :' + typeof(arr) + '/ 값:' + arr + '<br>');
+      document.write('arr 방의 갯수 :' + arr.length + '<br>');
+      var deleteValue = arr.pop(); // arr배열의 마지막 인덱스 값을 return하고 배열에서 삭제
+      var deleteValue = arr.pop(); // arr배열의 마지막 인덱스 값을 return하고 배열에서 삭제
+      var deleteValue = arr.pop(); // arr배열의 마지막 인덱스 값을 return하고 배열에서 삭제
+      document.write('arr의 pop 3번 후 값 : '+ arr + '<br>');
+      document.write('arr 방의 갯수 :' + arr.length + '<br>');
+    </script>
+  </head>
+  <body></body>
+</html>

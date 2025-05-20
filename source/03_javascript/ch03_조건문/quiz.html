@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+  <title></title>
+  <style>
+    p {text-align: center;}
+  </style>
+  <script>
+    function messageOut(){
+      if(!frm.su1.value){
+        alert('첫번째 수를 입력하세요');
+        frm.su1.focus()
+        return false;
+      }else if(!frm.su2.value){
+        alert('두번째 수를 입력하세요');
+        frm.su2.focus()
+        return false;
+      }
+      // 몇번째 수가 얼마 더 큰지 경고(alert)창과 화면에 출력(document.body.innerHTML이용)
+      let num1 = Number(frm.su1.value);
+      let num2 = Number(frm.su2.value);
+      let difference = num1>num2 ? num1-num2 : num2-num1;
+      let bodyMsg;
+      if(num1>num2){
+        bodyMsg = '<p>첫번째수가 ' + difference + ' 큽니다</p>';
+      }else if(num2>num1){
+        bodyMsg = '<p>두번째수가 ' + difference + ' 큽니다</p>';
+      }else{
+        bodyMsg = '<p>두 수가 같습니다</p>'
+      }
+      alertMsg = bodyMsg.replace('<p>', '').replace('</p>', '');
+      document.body.innerHTML += bodyMsg;
+      frm.su1.value = num1;
+      frm.su2.value = num2;
+      alert(alertMsg);
+    }
+  </script>
+</head>
+<body>
+  <form name="frm" onsubmit="return messageOut()">
+    <fieldset>
+      <p>
+        <label for="su1">첫번째 수</label> :
+        <input type="number" name="su1" id="su1">
+      </p>
+      <p>
+        <label for="su2">두번째 수</label> :
+        <input type="number" name="su2" id="su2">
+      </p>
+      <p><input type="submit" value="결과"></p>
+    </fieldset>
+  </form>
+</body>
+</html>

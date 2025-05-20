@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <style></style>
+    <script>
+      // 자료형 : undefined, string, number, boolean, function, object
+      var variable;
+      document.write('1.variable타입:'+typeof(variable)+'-값'+variable+'<br>');
+        variable = '이름은 "홍길동" 입니다';
+        document.write('2.variable타입:'+typeof(variable)+'-값'+variable+'<br>');
+        variable = -301010.2;
+        document.write('3.variable타입:'+typeof(variable)+'-값'+variable+'<br>');
+        variable = true;
+        document.write('4.variable타입:'+typeof(variable)+'-값'+variable+'<br>');
+        variable = function(){
+            i=10;
+            alert(i);
+        };
+        document.write('5.variable타입:'+typeof(variable)+'-값'+variable+'<br>');
+        variable = {'name':'홍길동','age':20};
+        document.write('5.variable타입:'+typeof(variable)+'-값'+variable+'<br>');
+        document.write(variable.name+'<br>');
+        variable = [10, "홍길동", function(){}, {'name':'홍길동'}]; //배열
+        document.write('5.variable타입:'+typeof(variable)+'-값'+variable+'<br>');
+
+
+
+
+
+    </script>
+  </head>
+  <body></body>
+</html>
