@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <style>
+      td:nth-child(2n + 1) {
+        padding-left: 7px;
+      }
+      td:nth-child(2n) {
+        padding-right: 7px;
+        text-align: right;
+      }
+    </style>
+    <script>
+      // 2~9단까지 구구단 (table이용)
+      document.write("<table><tr>");
+      for (i = 2; i <= 9; i++) {
+        document.write('<th colspan="2">' + i + "단</th>");
+      }
+      document.write("</tr>");
+      for (i = 1; i <= 9; i++) {
+        document.write("<tr>");
+        for (j = 2; j <= 9; j++) {
+          document.write("<td>" + j + "*" + i + "=</td><td>" + j * i + "</td>");
+        }
+        document.write("</tr>");
+      }
+      document.write("</table>");
+    </script>
+  </head>
+  <body></body>
+</html>

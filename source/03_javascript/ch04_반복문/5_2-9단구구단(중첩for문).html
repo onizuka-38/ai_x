@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <style>
+      td {
+        padding: 2px 7px;
+      }
+    </style>
+    <script>
+      // 2~9단까지 구구단
+      document.write("<table><tr>");
+      for (i = 2; i <= 9; i++) {
+        document.write("<th>" + i + "단</th>");
+      }
+      document.write("</tr>");
+      for (i = 1; i <= 9; i++) {
+        document.write("<tr>");
+        for (j = 2; j <= 9; j++) {
+          document.write("<td>" + j + "*" + i + "=" + j * i + "</td>");
+        }
+        document.write("</tr>");
+      }
+      document.write("</table>");
+    </script>
+  </head>
+  <body></body>
+</html>

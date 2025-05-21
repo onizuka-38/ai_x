@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <style></style>
+    <script>
+      let sum = 0;
+      let cnt = 0;
+      let right = 0;
+      let wrong = 0;
+
+      while (confirm("누적할래?")) {
+        var su = prompt("누적할 점수?");
+
+        if (su === null) break;
+
+        let score = Number(su);
+
+        if (!su || !su.trim() || isNaN(score) || score < 0 || score > 100) {
+          alert("0~100 사이의 숫자를 입력하세요.");
+          wrong++;
+        } else {
+          sum += score;
+          right++;
+        }
+        cnt++;
+      }
+
+      document.write(cnt + "번 입력 <br>");
+      document.write("누적점수 :" + sum + "<br>");
+      document.write("점수를 제대로 입력한 횟수:" + right + "<br>");
+      document.write("점수를 잘못 입력한 횟수: " + wrong + "<br>");
+    </script>
+  </head>
+  <body></body>
+</html>

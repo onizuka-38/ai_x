@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <style></style>
+    <script>
+      // 1000밀리세컨마다 콜백함수 수행
+      var id = setInterval(() => {
+        document.write(new Date() + "<br>");
+      }, 1000);
+      // 일정시간(10초) 후, 타이머(id)중지
+      setTimeout(() => {
+        clearInterval(id);
+        document.write("타이머 끝");
+      }, 10000);
+    </script>
+  </head>
+  <body></body>
+</html>

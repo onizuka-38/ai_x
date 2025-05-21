@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <style></style>
+    <script>
+      // 클로저 함수 : return된 함수
+      function test(name) {
+        var msg = "Hello, " + name + "님 방가방가";
+        // var fun = function () {alert(msg); };
+        // return fun;
+        return () => alert(msg);
+      }
+      test("홍길동")();
+    </script>
+  </head>
+  <body></body>
+</html>

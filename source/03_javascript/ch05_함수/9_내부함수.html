@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <script>
+      /* A가 만든 부분 */
+
+      function pythagoras(width, height) {
+        // 내부함수 : 함수 내의 함수
+        // 내부함수 사용 이유 : 충돌을 피하기 위해
+        function square(x) {
+          return x * x;
+        }
+        return Math.sqrt(square(width) + square(height));
+      }
+    </script>
+    <script>
+      /* B가 만든 부분 */
+      function square(width, height, hypotenuse) {
+        // return width*width + height*height == hypotenuse*hypotenuse
+        if (width * width + height * height == hypotenuse * hypotenuse) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <script>
+      alert("빗변의 길이는 " + pythagoras(3, 4));
+      alert("직각삼각형 여부 : " + square(3, 4, 5));
+    </script>
+  </body>
+</html>

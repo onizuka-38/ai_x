@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <style>
+        table{margin: 0 auto;}
+        td{text-align: right;}
+    </style>
+    <script>
+      // prompt 함수를 이용하여 원하는 구구단을 입력받아 해당 구구단을 출력
+      do {
+        var su = parseInt(prompt("숫자를 입력하세요(2~9)"));
+      } while (isNaN(su) || su < 2 || su > 9);
+      // 해당 구구단 출력하기 for문 x1부터 x9까지 출력
+      document.write("<table>");
+      for (i = 1; i <= 9; i++) {
+        document.write('<tr><td>' + su + " x " + i + " = </td>" + '<td>' + su * i + "</td></tr>");
+      }
+      document.write("</table>");
+    </script>
+  </head>
+  <body></body>
+</html>

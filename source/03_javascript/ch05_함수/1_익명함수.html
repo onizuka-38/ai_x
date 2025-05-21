@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <style></style>
+    <script>
+      let i = 10;
+      document.write("i=" + i + "<br>");
+      i = 20;
+      document.write("i=" + i + "<br>");
+      //functionVar(10, 20); 익명함수는 정의 전에 사용 불가
+      let functionVar = function (i, j) {
+        alert("함수 표현식 test i=" + i + ", j=" + j);
+      }; // 익명함수의 정의
+      functionVar(100, 200);
+      functionVar = (i, j) => {
+        // 함수를 재정의 후 호출시, 재정의된 함수로 실행
+        alert("화살표 함수 test i=" + i);
+      };
+      functionVar(99, 9);
+    </script>
+  </head>
+  <body></body>
+</html>
