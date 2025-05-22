@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <style></style>
+    <script>
+      // 생성자 함수
+      function Student(name, kor, mat, eng, sci) {
+        this.name = name;
+        this.kor = kor;
+        this.mat = mat;
+        this.eng = eng;
+        this.sci = sci;
+        this.getSum = function () {
+          return this.kor + this.mat + this.eng + this.sci;
+        };
+        this.getAvg = function () {
+          return this.getSum() / 4;
+        };
+        this.toString = function () {
+          let output = "";
+          for (let key in this) {
+            if (key != "toString" && key != "getSum" && key != "getAvg") {
+              output += key + ":" + this[key] + " ";
+            } else if (key == "getSum") {
+              output += key.substring(3) + ":" + this[key]() + " ";
+            } else if (key == "getAvg") {
+              output += key.substring(3) + ":" + this[key]() + "\n";
+            } //if
+          } //for
+          return output;
+        }; //toString
+      } // 생성자함수
+      students = [];
+      students.push(new Student("홍", 99, 99, 99, 99));
+      students.push(new Student("김", 99, 99, 99, 99));
+      students.push(new Student("박", 99, 99, 99, 99));
+      students.forEach((data, idx) => document.write(idx + '.' +data + '<br>'));
+
+    </script>
+  </head>
+  <body></body>
+</html>

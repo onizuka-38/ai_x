@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <style></style>
+    <script>
+      let students = [
+        { name: "홍", kor: 99, mat: 90, eng: 99, sci: 99 },
+        { name: "김", kor: 99, mat: 90, eng: 80, sci: 99 },
+      ];
+      students.push({ name: "이", kor: 99, mat: 90, eng: 70, sci: 99 });
+      for (var idx in students) {
+        (students[idx].getSum = function () {
+          return this.kor + this.mat + this.eng + this.sci;
+        }),
+          (students[idx].getAvg = function () {
+            return this.getSum() / 4;
+          }),
+          (students[idx].toString = function () {
+            let output = "";
+            for (let key in this) {
+              if (key != "toString" && key != "getSum" && key != "getAvg") {
+                output += key + ":" + this[key] + " ";
+              } else if (key == "getSum") {
+                output += key.substring(3) + ":" + this[key]() + " ";
+              } else if (key == "getAvg") {
+                output += key.substring(3) + ":" + this[key]() + "\n";
+              } //if
+            } //for
+            return output;
+          }); //toString
+      } //for
+      var out = ""; //alert 함수에 출력할 문자를 담을 변수
+      for (let idx = 0; idx < students.length; idx++) {
+        out += students[idx];
+      }
+      alert(out);
+      document.write(out.replaceAll("\n", "<br>"));
+      document.write("<h3>for-in</h3>");
+      for (let idx in students) {
+        document.write(students[idx] + "<br>");
+      }
+      document.write("<h3>for-of</h3>");
+      for (let student of students) {
+        document.write(student + "<br>");
+      }
+      document.write("<h3>forEach - 1</h3>");
+      students.forEach((data, idx) =>
+        document.write(idx + "." + data + "<br>")
+      );
+
+      document.write("<h3>forEach - 2</h3>");
+      students.forEach((data) => document.write(data + "<br>"));
+    </script>
+  </head>
+  <body></body>
+</html>

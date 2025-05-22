@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <style></style>
+    <script>
+      let name = "이순신";
+      let method = function (i) {
+        alert(i);
+      };
+      let person = {
+        name: "이순신",
+        age: 20,
+        eat: function (food) {
+          var msg = this.age + "살" + this.name + "님은" + food + "를 먹는다";
+          alert(msg);
+        }, // eat함수
+      }; // person 객체
+      document.write(person.name + "님" + person.age + "<br>");
+      document.write(person + "<br>");
+      document.write(person.toString + "<br>");
+      person.eat("불고기");
+    </script>
+  </head>
+  <body></body>
+</html>

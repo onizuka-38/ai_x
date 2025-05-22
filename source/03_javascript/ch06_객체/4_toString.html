@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <script>
+      let person = {
+        name: "이순신", // 속성 변수
+        age: 20,
+        eat: function (food) {
+          // 메소드 내에서는 this 키워드 이용
+          var msg = this.age + "살" + this.name + "님은" + food + "를 먹는다";
+          alert(msg);
+        }, // eat 함수
+        toString: function () {
+          // 파이썬에서의 __str__역할
+          let output = ""; // toString함수가 return할 문자
+          for (let key in this) {
+            if (key != "eat" && key != "toString") {
+              //output = output + key + ':' + this[key] + '<br>';
+              output += key + ":" + this[key] + "<br>";
+            } // if
+          } //for
+          return output;
+        },
+      }; // person 객체
+      document.write(person);
+      alert(person.toString().replace("<br>", "\n"));
+      person.address = "서울시";
+      person.hobby = "열공";
+      document.write(person);
+      alert(person.toString().replaceAll("<br>", "\n"));
+    </script>
+  </head>
+  <body></body>
+</html>

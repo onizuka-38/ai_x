@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+  <title></title>
+  <script>   //012345678
+    var str = 'Abc@Abcd@'; // ['A','b','c','@','A']
+    document.write('원본 : '+str +'<br>');
+    document.write('글자 길이 : ' + str.length + '<br>');
+    document.write('첫번째 글자 : ' + str[0] +'<br>');
+    document.write('글자 연결 : ' + str.concat(str) + '<br>');
+    // str.substring(a, b) : a번째부터 b번째 앞까지 추출
+    // str.substring(a) : a번째부터 끝까지 추출
+    // str.substr(a, b) : a번째부터 글자 b개 추출
+    document.write('3번째부터 7번째 글자 추출 : ' + str.substring(3, 8) + '<br>');
+    document.write('3번째부터끝까지 글자 추출 : ' + str.substring(3) + '<br>');
+    document.write('5번째부터 3글자 추출 : ' + str.substr(5, 3) + '<br>');
+    document.write('맨처음 나오는 @의 위치 : ' + str.indexOf('@') + '<br>');
+    document.write('맨마지막 나오는 @의 위치 : ' + str.lastIndexOf('@') + '<br>');
+    document.write('양쪽 space 없애기 : ' + "  나의 앱  ".trim() +'<br>');
+    document.write('대문자로 전환 : ' + str.toUpperCase() + '<br>');
+    document.write('소문자로 전환 : ' + str.toLowerCase() + '<br>');
+    document.write('@를 -로 전환(처음) : ' + str.replace('@', ' - ') + '<br>');
+    document.write('@를 -로 전환(전부) : ' + str.replaceAll('@', ' - ') + '<br>');
+    document.write('@ 없애기 : ' + str.replaceAll('@','') + '<br>');
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

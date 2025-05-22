@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <style></style>
+    <script>
+      //객체생성 -> return하는 함수
+      function makeStudent(name, kor, mat, eng, sci) {
+        let resultObj = {
+          name: name,
+          kor: kor,
+          mat: mat,
+          eng: eng,
+          sci: sci,
+          getSum: function () {
+            return this.kor + this.mat + this.eng + this.sci;
+          },
+          getAvg: function () {
+            return this.getSum() / 4;
+          },
+          toString: function () {
+            let output = "";
+            for (let key in this) {
+              if (key != "toString" && key != "getSum" && key != "getAvg") {
+                output += key + ":" + this[key] + " ";
+              } else if (key == "getSum") {
+                output += key.substring(3) + ":" + this[key]() + " ";
+              } else if (key == "getAvg") {
+                output += key.substring(3) + ":" + this[key]() + "\n";
+              } //if
+            } //for
+            return output;
+          }, // toString
+        }; // resultObj
+        return resultObj;
+      }
+
+      students = [
+        makeStudent("홍", 90, 99, 80, 95),
+        makeStudent("김", 99, 95, 88, 70),
+        makeStudent("유", 90, 95, 88, 70),
+      ];
+      students.forEach((data, idx) =>
+        document.write(idx + "." + data + "<br>")
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
