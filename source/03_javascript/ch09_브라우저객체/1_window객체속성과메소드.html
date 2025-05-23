@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <style></style>
+    <script>
+      window.onclick = function () {
+        alert("클릭");
+      };
+      var cnt = 0;
+      for (var key in window) {
+        if (key.substr(0, 2) == "on" || key == "chk" || key == "cnt") {
+          document.writeln(++cnt + key + ":" + window[key] + "<br>");
+        }
+      }
+      function chk() {}
+    </script>
+  </head>
+  <body></body>
+</html>

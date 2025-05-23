@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <style></style>
+    <script>
+      window.onload = () => {
+        // id로 가져오기 document.getElementById(id명) : 엘리먼트 하나 return
+        // class로 가져오기 document.getElementsByClassName(class명) : 배열 return
+        var clock1 = document.getElementsByClassName("clock1");
+        clock1[0].innerHTML = new Date().toLocaleDateString();
+        clock1[1].innerHTML = "<b>" + new Date().toLocaleTimeString() + "</b>";
+        var clock2 = document.getElementsByClassName("clock2")[0];
+        clock2.value = new Date().toLocaleTimeString(); // 태그 안 먹힘
+        // clock2.style = 'font-weight:bold'
+        clock2.style.fontWeight = "bold";
+      };
+    </script>
+  </head>
+  <body>
+    <h1 class="clock1 clockh1"></h1>
+    <p class="clock1 clockp"></p>
+    <input type="text" class="clock2" />
+  </body>
+</html>

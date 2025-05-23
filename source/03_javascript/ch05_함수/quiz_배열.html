@@ -2,31 +2,38 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <title>퀴즈: 배경 이미지 타이머</title>
+    <title></title>
+    <style>
+      body {
+        background-image: url("img/img03.png");
+        background-size: 100%;
+        color: #ffff00;
+        font-size: 1.5em;
+      }
+    </style>
     <script>
-      var imgList = ["img/img01.png", "img/img02.png", "img/img03.png"];
+      var image = ["img/img01.png", "img/img02.png", "img/img03.png"];
+      var color = ["#FFFF00", "green", "white"];
       var idx = 0;
       var sec = 0;
 
       window.onload = function () {
-        // 배경 스타일 설정
         document.body.style.backgroundRepeat = "no-repeat";
         document.body.style.backgroundSize = "cover";
 
-        // 출력용 div 생성
         var output = document.createElement("div");
         document.body.appendChild(output);
 
-        // 1초마다 실행
         var id = setInterval(function () {
           var now = new Date();
           document.body.style.backgroundImage =
-            "url('" + imgList[idx % imgList.length] + "')";
-          output.innerHTML =
-            "현재 시각: " + now + "<br>" + (sec + 1) + "초 지남<br><br>";
+            "url('" + image[idx % image.length] + "')";
+          document.body.style.color = color[sec % image.length];
+
+          sec++;
+          output.innerHTML = "현재 시각: " + now + "<br>" + sec + "초 지남<br>";
 
           idx++;
-          sec++;
 
           if (sec >= 10) {
             clearInterval(id);

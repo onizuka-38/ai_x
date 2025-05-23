@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <style></style>
+    <script>
+      var arr1 = new Array("hig", "abc", "zzz", "aaa"); // ['hig', 'abc', 'zzz', 'aaa']
+      var arr2 = [52, 100, 12, 94];
+      let arr1copy = arr1.slice(); // 깊은 복사
+      arr1copy = Array.from(arr1); // 깊은 복사
+      arr1copy = [...arr1]; // 깊은 복사
+      document.writeln("정렬전 arr1 : " + arr1 + "<br>");
+      arr1.sort(); // ascii 코드순으로 정렬
+      document.writeln("정렬후 arr1 : " + arr1 + "<br>");
+      document.writeln("정렬전 arr2 : " + arr2 + "<br>");
+      arr2.sort(); // 문자로 변환한 후 ascii 코드순으로 정렬
+      document.writeln("ASCII 정렬후 arr2 : " + arr2 + "<br>");
+      arr2.sort((left, right) => {
+        return right - left; // 내림차순정렬
+      });
+      document.writeln("내림차순 정렬후 arr2 : " + arr2 + "<br>");
+      arr2.reverse(); // 배열 요소의 순서를 뒤집는다.
+      document.writeln("reverse 후 arr2 : " + arr2 + "<br>");
+      arr2.sort((left, right) => right - left);
+      document.writeln("top 3 : " + arr2.slice(0, 3));
+    </script>
+  </head>
+  <body></body>
+</html>

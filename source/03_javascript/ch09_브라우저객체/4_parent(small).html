@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <style></style>
+    <script>
+      let child;
+      function openChild() {
+        // 새창 열기
+        child = open(
+          "4_child(large).html",
+          "",
+          "width=450, height=600px, left=0, top=0"
+        );
+        if (!child) {
+          alert("팝업차단 해제 요망");
+        }
+      }
+      function closeChild() {
+        // 열린창 닫기
+        child.close();
+      }
+    </script>
+  </head>
+  <body>
+    <h2>작은 그림의 parent창</h2>
+    <img
+      src="img/small.jpg"
+      alt="작은그림"
+      onmouseover="openChild()"
+      onmouseout="closeChild()"
+    />
+  </body>
+</html>

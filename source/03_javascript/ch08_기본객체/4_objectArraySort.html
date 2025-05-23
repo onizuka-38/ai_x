@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <script>
+      // 생성자 함수
+      function Student(name, kor, mat) {
+        this.name = name;
+        this.kor = kor;
+        this.mat = mat;
+      } // 생성자함수
+      // Student 타입의 함수를 prototype에 추가
+      Student.prototype.getSum = function () {
+        return this.kor + this.mat;
+      };
+      Student.prototype.toString = function () {
+        let output = "";
+        for (let key in this) {
+          if (key != "toString" && key != "getSum") {
+            output += key + ":" + this[key] + " ";
+          } else if (key == "getSum") {
+            output += key.substring(3).toLowerCase() + ":" + this[key]() + " ";
+          } //if
+        } //for
+        return output;
+      };
+      var students = [
+        new Student("김길동", 79, 99),
+        new Student("홍길동", 99, 99),
+        new Student("신길동", 39, 49),
+        new Student("유길동", 89, 29),
+        new Student("박길동", 79, 89),
+      ];
+      document.writeln("<h3>정렬전</h3>");
+      students.forEach((data) => document.writeln(data + "<br>"));
+      students.sort(); // 문자로 변환후 ascii 코드 정렬
+      document.writeln("<h3>정렬후(ascii 정렬)</h3>");
+      students.forEach((data) => document.writeln(data + "<br>"));
+      students.sort((left, right) => {
+        return right.getSum() - left.getSum(); // 총점 기준 내림차순 정렬
+      });
+      document.writeln("<h3>정렬후(총점 내림차순 정렬)</h3>");
+      students.forEach((data) => document.writeln(data + "<br>"));
+      // 수학점수 기준 오름차순 정렬
+      students.sort((left, right) => {
+        return left.mat - right.mat;
+      });
+      document.writeln("<h3>정렬후(수학점수 오름차순 정렬)</h3>");
+      students.forEach((data) => document.writeln(data + "<br>"));
+    </script>
+  </head>
+  <body></body>
+</html>
