@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <style></style>
+    <script>
+      window.onload = () => {
+        var header1 = document.querySelector("h1.header"); // 방법5. 첫번째 해당 선택자 하나만
+        header1.innerHTML = "첫번째만";
+        var header = document.querySelectorAll("h1.header"); // 방법6. 해당 선택자 다 배열로
+        color = ["red", "orange"];
+        for (let idx = 0; idx < header.length; idx++) {
+          // for (let idx in header) {
+          header[idx].style.backgroundColor = color[idx];
+          //   header[idx].style = "background-color:" + color[idx];
+        }
+        var param = document.querySelector("input[type=text]");
+        param.value = "즐거운 주말 보내세요. 월요일에 꼭 봐요";
+      };
+    </script>
+  </head>
+  <body>
+    <h1 class="header">HEADER1</h1>
+    <h1 class="header">HEADER2</h1>
+    <input type="text" name="param" />
+  </body>
+</html>

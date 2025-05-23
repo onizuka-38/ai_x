@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style>
+      table {
+        width: 280px;
+        height: 100px;
+        margin: 10px auto;
+      }
+      h3 {
+        text-align: center;
+      }
+    </style>
+    <script>
+      let color = [
+        "red",
+        "orange",
+        "yellow",
+        "green",
+        "blue",
+        "navy",
+        "violet",
+      ];
+
+      window.onload = () => {
+        var tds = document.querySelectorAll("td"); // 방법6. 해당 선택자 다 배열로
+
+        for (let idx = 0; idx < tds.length; idx++) {
+          tds[idx].style.backgroundColor = color[idx];
+
+          tds[idx].onmouseover = () => {
+            document.body.style.backgroundColor = color[idx];
+          };
+        }
+
+        document.querySelector("tr").onmouseout = () => {
+          document.body.style.backgroundColor = "white";
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <h3>quiz1 : 마우스를 올리면 바탕화면도 해당 색상으로</h3>
+    <table>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </body>
+</html>

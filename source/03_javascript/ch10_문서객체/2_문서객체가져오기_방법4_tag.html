@@ -8,7 +8,20 @@
     />
     <title></title>
     <style></style>
-    <script></script>
+    <script>
+      window.onload = () => {
+        var header = document.getElementsByTagName("h1"); //배열
+        for (let idx = 0; idx < header.length; idx++) {
+          header[idx].innerHTML = "바꿔 #" + idx;
+        }
+        // for (let idx in header){
+        //     header[idx].innerHTML = '바꿔 #' + idx;
+        // }
+        // for (let data of header) {
+        //   data.innerHTML = "바꿔";
+        // }
+      };
+    </script>
   </head>
   <body>
     <h1>HEADER</h1>
