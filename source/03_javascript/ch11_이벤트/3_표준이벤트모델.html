@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <style></style>
+    <script>
+      window.onload = () => {
+        var h1 = document.getElementById("header");
+        // h1.onclick = function(){};
+        // 객체.addEventListener(이벤트이름, 리스너함수)
+        h1.addEventListener("click", function () {
+          alert("click했네");
+          this.innerHTML = "click 했네"; // this를 쓰려면 화살표 함수 불가
+          this.style.color = "red";
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <h1 id="header">click 해 봐</h1>
+  </body>
+</html>

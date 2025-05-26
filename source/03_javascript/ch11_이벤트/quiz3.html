@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <style></style>
+    <script>
+      //Quiz3. 좌측 아이콘이 마우스다운(onmousedown)되면 우측과 같이 되고, 마우스up(onmoustup)되면 다시 원상복귀되는 페이지를 완성하시오.
+      //좌측(img/but1.gif), 우측(img/but2.gif)
+      window.onload = () => {
+        const img = document.querySelector("img");
+
+        img.onmousedown = () => {
+          img.setAttribute("src", "img/but2.gif");
+        };
+
+        img.onmouseup = () => {
+          img.setAttribute("src", "img/but1.gif");
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <img src="img/but1.gif" alt="mouse up" />
+  </body>
+</html>

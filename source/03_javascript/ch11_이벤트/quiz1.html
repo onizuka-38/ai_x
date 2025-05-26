@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      table {
+        width: 500px;
+        margin: 10px auto;
+        background-color: darkgreen;
+      }
+      td {
+        background-color: white;
+        padding: 50px;
+        text-align: center;
+      }
+    </style>
+    <script>
+      //         윗숫자 키보드 아스키코드 :48(0)~56(8)
+      // 옆숫자 키보드 아스키코드 : 96(0)~105(8)
+      // Quiz1. 입력한 윗숫자 키보드의 해당 칸을 yellow로,옆숫자 키보드의 해당칸은 red로
+
+      var td;
+      window.onload = () => {
+        td = document.querySelectorAll("td");
+      };
+      window.onkeyup = () => {
+        let key = event.keyCode;
+        // 우측숫자 : 0(96) ~ 9(105)
+        // 위숫자 : 0(48) ~ 9(57)
+        if (96 <= key && key <= 104) {
+          let idx = key - 96;
+          if (td[idx]) {
+            td[idx].style.backgroundColor = "yellow";
+          }
+        } else if (48 <= key && key <= 56) {
+          let idx = key - 48;
+          if (td[idx]) {
+            td[idx].style.backgroundColor = "red";
+          }
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>0</td>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+      </tr>
+    </table>
+  </body>
+</html>

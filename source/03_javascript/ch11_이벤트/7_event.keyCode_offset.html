@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <style>
+      img {
+        display: none;
+        position: absolute;
+      }
+    </style>
+    <script>
+      var span;
+      window.onload = () => {
+        span = document.querySelector("span");
+      };
+      window.onkeyup = () => {
+        //입력된 키보드를 span태그에 출력
+        let key = event.keyCode;
+        // 우측숫자 : 0(96) ~ 9(105)
+        // 위숫자 : 0(48) ~ 9(57)
+        // a(65) ~ z(90)
+        if (96 <= key && key <= 105) {
+          span.innerHTML = "우측숫자 키보드 " + (key - 95) + "를 입력";
+        } else if (48 <= key && key <= 57) {
+          span.innerHTML = "위숫자 키보드 " + (key - 48) + "를 입력";
+        } else if (65 <= key && key <= 90) {
+          span.innerHTML = "알파벳" + String.fromCodePoint(key) + "를 입력";
+        }
+      };
+      window.onclick = () => {
+        //클릭한 좌표를 span태그에 출력
+        span.innerHTML =
+          "브라우저기준 좌표" + event.offsetX + "," + event.offsetY + "<br>";
+        span.innerHTML += "스크린좌표 :" + event.screenX + "," + event.screenY;
+        let img = document.querySelector("img");
+        img.style.display = "block";
+        img.style.left = event.offsetX + "px";
+        img.style.top = event.offsetY + "px";
+      };
+    </script>
+  </head>
+  <body>
+    <span></span>
+    <img src="img/car.gif" />
+  </body>
+</html>

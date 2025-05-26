@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style>
+      ul {
+        overflow: hidden;
+      }
+      li {
+        float: left;
+        list-style: none;
+        margin: 3px;
+      }
+    </style>
+    <script>
+      // Quiz2. 버튼 위에 마우스를 올리면 버튼의 색상이 바뀌도록 페이지를 구현하시오(onmouseover, onmouseout)
+      // (수업시간 예제 4_this.html 참조)
+      // 마우스를 올리면 out이미지에서 over이미지로 변함.
+      var overImg = [
+        "img/0over.jpg",
+        "img/1over.jpg",
+        "img/2over.jpg",
+        "img/3over.jpg",
+      ];
+      var outImg = [
+        "img/0out.jpg",
+        "img/1out.jpg",
+        "img/2out.jpg",
+        "img/3out.jpg",
+      ];
+
+      window.onload = () => {
+        let img = document.querySelectorAll("ul li img");
+
+        img.forEach((img, idx) => {
+          img.onmouseover = () => {
+            img.setAttribute("src", overImg[idx]);
+          };
+        });
+        img.forEach((img, idx) => {
+          img.onmouseout = () => {
+            img.setAttribute("src", outImg[idx]);
+          };
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <ul>
+      <li>
+        <a href="#"><img src="img/0out.jpg" /></a>
+      </li>
+      <li>
+        <a href="#"><img src="img/1out.jpg" /></a>
+      </li>
+      <li>
+        <a href="#"><img src="img/2out.jpg" /></a>
+      </li>
+      <li>
+        <a href="#"><img src="img/3out.jpg" /></a>
+      </li>
+    </ul>
+  </body>
+</html>

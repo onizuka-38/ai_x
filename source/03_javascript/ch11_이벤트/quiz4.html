@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <style>
+      div {
+        width: 300px;
+        margin: 0 auto;
+        border: 1px solid blue;
+        text-align: center;
+      }
+    </style>
+    <script>
+      //quiz2 : 다음의 화면을 구현하시오(버튼을 클릭하면 해당 페이지로 이동한다)
+      window.addEventListener("load", () => {
+        const button = document.querySelectorAll("button");
+
+        button.forEach((btn, idx) => {
+          btn.addEventListener("click", () => {
+            window.open(url[idx]);
+          });
+        });
+      });
+      const url = [
+        "http://www.naver.com",
+        "http://www.daum.net",
+        "http://www.google.com",
+        "http://www.youtube.com",
+      ];
+    </script>
+  </head>
+  <body>
+    <div>
+      <h3>quiz4. 메뉴</h3>
+      <p>
+        <button>네이버</button>
+        <button>다음</button>
+        <button>구글</button>
+        <button>유투브</button>
+      </p>
+    </div>
+  </body>
+</html>

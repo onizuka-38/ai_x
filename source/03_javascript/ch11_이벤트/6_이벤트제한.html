@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <script>
+      //기본 이벤트 모델
+      window.onload = () => {
+        document.getElementsByTagName("form")[0].onsubmit = function () {
+          let pw = document.getElementsByName("pw")[0];
+          let pwChk = document.querySelector("input[name=pwChk]");
+          if (!pw.value) {
+            alert("비밀번호를 입력하세요");
+            pw.focus();
+            return false; // 이벤트 제한(디폴트 이벤트가 이번만 실행이 안 됨)
+          } else if (pw.value != pwChk.value) {
+            alert("비밀번호를 확인하세요");
+            pw.value = "";
+            pwChk.value = "";
+            pw.focus();
+            return false; // 이벤트 제한
+          }
+          //return true;
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <form name="frm">
+      PW <input type="password" name="pw" /><br />
+      PW <input type="password" name="pwChk" /><br />
+      <input type="submit" />
+    </form>
+  </body>
+</html>

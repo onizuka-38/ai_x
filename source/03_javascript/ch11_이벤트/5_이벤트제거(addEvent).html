@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <style>
+      h1 {
+        cursor: pointer;
+        user-select: none;
+      }
+      span:nth-child(1) {
+        color: red;
+      }
+      span:nth-child(2) {
+        color: orange;
+      }
+      span:nth-child(3) {
+        color: yellow;
+      }
+      span:nth-child(4) {
+        color: green;
+      }
+      span:nth-child(5) {
+        color: blue;
+      }
+      span:nth-child(6) {
+        color: navy;
+      }
+      span:nth-child(7) {
+        color: violet;
+      }
+    </style>
+    <script>
+      let cnt = 0; // click 횟수
+      window.addEventListener("load", () => {
+        let handler = function () {
+          this.innerHTML += "<span>♥</span>";
+          // click이벤트는 7번만 가능하도록 : 7번째 click이벤트 발생시 click 이벤트 제거
+          cnt++;
+          if (cnt >= 7) {
+            // 이벤트 제거
+            this.removeEventListener("click", handler);
+          }
+        };
+        document
+          .getElementsByTagName("h1")[0]
+          .addEventListener("click", handler);
+      });
+    </script>
+  </head>
+  <body>
+    <h1>좋아요</h1>
+  </body>
+</html>
