@@ -1,0 +1,15 @@
+CSS 주요 속성 요약:
+
+1. 단위: em, %, px, pt 등으로 크기 표현.
+2. 배경 이미지: background-image에 url() 사용.
+3. display: block, inline, inline-block, none.
+4. visibility: hidden은 보이지 않지만 공간 차지, display:none은 공간도 제거.
+5. opacity: 투명도 설정.
+6. margin/padding: 요소 외부/내부 여백 설정.
+7. box-sizing: border 포함 영역 조절.
+8. 글자 속성: font-family, size, weight, style, line-height, text-align 등.
+9. position: static, relative, absolute, fixed로 위치 조절.
+10. float: 좌우 배치 조정.
+11. 웹폰트: @font-face 또는 Google Fonts로 설정.
+12. text-decoration: 밑줄 등 텍스트 스타일.
+13. line-height: 수직 가운데 정렬 가능.

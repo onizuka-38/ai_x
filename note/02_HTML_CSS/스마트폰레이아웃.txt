@@ -1,0 +1,12 @@
+스마트폰과 태블릿 레이아웃 핵심 요약:
+
+1. viewport 메타태그로 디바이스 크기에 맞게 콘텐츠 조절 가능.
+2. 주요 속성: width, height, initial-scale, user-scalable 등.
+3. header: 로고, 메뉴, 검색창 구성.
+4. section: 본문 이미지(grid 형태), 리스트(말줄임 처리 포함), 이미지+텍스트.
+5. footer: 주소와 로고 등 정보 표기.
+6. CSS reset: *{margin, padding}, a{text-decoration:none}, li{list-style:none}.
+7. 이미지와 텍스트 구성 시 float, width%, box-sizing 사용.
+8. text-overflow:ellipsis로 긴 텍스트 처리.
+9. 반응형 확인: F12 > Ctrl+Shift+M로 스마트폰 뷰 테스트.
+10. 전체 구조는 header, nav, section, footer로 구성.

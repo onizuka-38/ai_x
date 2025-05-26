@@ -1,0 +1,14 @@
+CSS3 핵심 요약:
+
+1. CSS 파일 분리: <link> 또는 <style>@import로 외부 CSS 분리.
+2. @import 규칙: 다른 CSS 파일 불러오기. <style> 내부 최상단에 위치.
+3. @media 규칙: 디바이스 유형/크기에 따라 스타일 다르게 적용.
+   - screen: 화면용, print: 인쇄용 등
+4. 반응형 웹: 다양한 화면 크기 대응
+   - max-device-width, min-device-width 조건 활용
+5. 예시: 화면 폭에 따라 메뉴 숨기기, 폰트 크기/배경색 변경 등
+6. Viewport 메타 태그: 모바일 환경에서 화면 비율 제어.
+7. 레이아웃 구조: header, nav, content, footer 로 구성
+8. float, box-sizing, text-align 등 CSS 속성과 병행 사용
+9. CSS3 규칙은 유지보수성과 디바이스 적응력을 높이는 핵심 기술임.
+
