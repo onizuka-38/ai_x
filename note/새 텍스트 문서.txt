@@ -1,0 +1,2 @@
+Client_ID=lpRb2e8NCixykVk19PoA
+Client_Secret=VqP9UP0DMV

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <style></style>
+    <script>
+      // html DOM 트리가 완성될 때
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelector("button").addEventListener("click", () => {
+          let id = document.querySelector('input[name="id"]').value;
+          let params = new URLSearchParams({ id: id });
+          console.log("exists.html?id=" + id);
+          console.log(`exists.html?id=${id}`);
+          console.log(`exists.html?id=${params}`);
+          // 비동기 작업의 결과를 약속하는 함수 => fetch
+          fetch(`exist.html?id=${params}`, { method: "get" })
+            .then((response) => {
+              if (!response.ok) {
+                // response.ok:요청경로의 응답이 정상적으로 왔는지 여부
+                // 요청경로를 정상적으로 응답하지 않을 경우 예외 객체 발생
+                throw new Error(`${response.status}/${response.statusText}`);
+              }
+              return response.text();
+            })
+            .then((data) => {
+              document.querySelector("span#idConfirm").innerHTML = data.trim();
+            })
+            .catch((error) => {
+              alert(error.message);
+            });
+        }); // click 이벤트
+      }); // DOMContentLoad 이벤트
+    </script>
+  </head>
+  <body>
+    아이디 <input type="text" name="id" /><button>중복체크</button><br />
+    <span id="idConfirm"></span>
+  </body>
+</html>

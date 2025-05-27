@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <style></style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+      //   $(document).ready(function () {});
+      /*
+      $.get(요청경로, callback(data, status){
+        data : 요청경로를 수행한 결과
+        status : success / fail
+      });
+      $.post(요청경로(xx), 요청파라미터값의 객체({id:'aa'}), callback);
+      */
+      $(document).ready(function () {
+        $("button").click(() => {
+          let id = $('input[name="id"]').val();
+
+          $.get("exist.html?id=" + id, function (data, status) {
+            if (status === "success") {
+              $("span#idConfirm").html(data.trim());
+            } else {
+              alert("고쳐");
+            }
+          });
+        }); // click
+        $('input[name="id"]').keyup(function () {
+          var id = $(this).val();
+          if (id.length < 3) {
+            $("span#idConfirm").html("id는 3글자 이상");
+          } else {
+            // 입력된 id 글자가 3글자 이상에서 aJax
+            $.get("noneExist.html?id=" + id, function (data, status) {
+              if (status === "success") {
+                $("span").html(data);
+              } else {
+                alert("고쳐");
+              }
+            });
+          }
+        }); // keyup 이벤트
+      });
+    </script>
+  </head>
+  <body>
+    아이디 <input type="text" name="id" autocomplete="off" />
+    <button>중복체크</button><br />
+    <span id="idConfirm"></span>
+  </body>
+</html>

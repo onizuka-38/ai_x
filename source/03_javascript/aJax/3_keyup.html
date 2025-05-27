@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <style></style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('input[name="pw"], input[name="pwChk"]').keyup(function () {
+          var pw = $('input[name="pw"]').val();
+          var pwChk = $('input[name="pwChk"]').val();
+          if (!pw && !pwChk) {
+            $(".result").html(" &nbsp; &nbsp; ");
+          } else if (pw == pwChk) {
+            $(".result").text("두 비밀번호가 일치합니다");
+            $(".result").css("color", "blue");
+          } else {
+            $(".result").html("<b>비밀번호가 일치하지 않습니다</b>");
+            $(".result").css("color", "red");
+          }
+        }); // keyup
+        $("form").submit(() => {
+          const result = $(".result").text();
+          if (result != "두 비밀번호가 일치합니다") {
+            alert("비밀번호를 확인하세요");
+            return false;
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <form>
+      <p>
+        ID <input type="text" name="id" />
+        <input type="button" value="중복확인1" onclick="alert(1)" />
+        <!-- <button onclick="alert(2)">중복확인2</button> -->
+        <!-- form태그 내에서 button은 submit버튼 역할 -->
+      </p>
+      <p>PW <input type="password" name="pw" class="pw" /></p>
+      <p>PW <input type="password" name="pwChk" /></p>
+      <div class="result"></div>
+      <input type="submit" />
+    </form>
+  </body>
+</html>

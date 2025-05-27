@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        /* aJax함수 : $.get(), $.post(), $.ajax(), fetch()
+      $.get(요청경로(xx?id=aa), callback(data, status){
+        data : 요청경로를 수행한 결과
+        status : success / fail
+      });
+      $.post(요청경로(xx), 요청파라미터값의 객체({id:'aa'}), callback);
+      $.ajax({
+        url:'요청경로(xx?id=aa / xx)★', 
+        type : 'get'이나 'post',
+        data : 요청파라미터와 값 'id=aaa'이나 {id:'aaa'},
+        dataType : 'html'/'json' 요청한 경로로 실행한 결과의 타입,
+        success : 요청경로 성공시 수행할 콜백함수★,
+        error : 요청경로 실패시 수행할 콜백함수
+      });   */
+        $("button").click(() => {
+          let id = $("input[name=id]").val();
+          $.ajax({
+            url: "exist.html",
+            type: "get",
+            //data : 'id='+id,
+            data: { id: id },
+            dataType: "html",
+            success: function (data) {
+              $("#idConfirm").html(data);
+            },
+            error: function (code) {
+              alert(code.status + "/" + code.statusText);
+            },
+          }); // $.ajax
+        }); // click 이벤트
+        $("input[name=id]").keyup(function () {
+          let id = $(this).val();
+          $.ajax({
+            url: "noneExist.html",
+            data: { id: id },
+            // type : 'get',
+            // dataType : 'html',
+            success: (data) => {
+              $("span").html(data);
+            },
+            error: (code) => {
+              alert(code.status, +"/" + code.statusText);
+            },
+          }); // $.ajax
+        }); //keyup
+      }); // ready
+    </script>
+  </head>
+  <body>
+    아이디 <input type="text" name="id" autocomplete="off" />
+    <button>중복체크</button><br />
+    <span id="idConfirm"></span>
+  </body>
+</html>

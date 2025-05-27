@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <title></title>
+    <style></style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+      // jQuery 소스 : $(선택자).action()
+      $(document).ready(function () {
+        $("p#p1").click(function () {
+          // 'p#p1' 선택자가 click되었을 때
+          //   $(this).html("<b>태그 내용이 html에 적용되어 바뀜");
+          //   $(this).text("<b>태그 내용안에 text 삽입</b>");
+          $(this).html("<b>태그 내용을 html에 적용</b>");
+          $(this).css("background-color", "red").css("color", "yellow");
+        });
+      });
+      $(function () {});
+    </script>
+  </head>
+  <body>
+    <p id="p1">click 해 봐</p>
+  </body>
+</html>
