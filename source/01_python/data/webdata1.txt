@@ -1,0 +1,3 @@
+순위 wrap.t_center > rank
+제목 div.ellipsis.rank01 > span
+가수 div.ellipsis.rank02 > span.checkEllipsis

@@ -1,0 +1,11 @@
+title = h4 > strong
+date = div.win_result >p.desc
+number = div.num.win span
+bonus = div.num.bonus span
+
+1173회(times) : div.win_result > h4 > strong
+날짜(date) : div.win_result >p.desc
+당첨번호 글씨(title1) : div.num.win > strong
+lotto_numbers : div.num.win > p > span
+보너스글씨(title2) : div.num.bonus > strong
+bonus_number : div.num.bonus > p > span
