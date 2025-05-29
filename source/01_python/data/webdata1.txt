@@ -1,3 +1,8 @@
-순위 wrap.t_center > rank
-제목 div.ellipsis.rank01 > span
-가수 div.ellipsis.rank02 > span.checkEllipsis
+순위  div > div.item_img > div.img_canvas > div > em
+제목 div > div.item_info > div.info_row.info_name > a.gd_name
+저자 div > div.item_info > div.info_row.info_pubGrp > span.authPub.info_auth > a
+출판사 div > div.item_info > div.info_row.info_pubGrp > span.authPub.info_pub > a
+가격 div > div.item_info > div.info_row.info_price > strong > em
+
+
+
