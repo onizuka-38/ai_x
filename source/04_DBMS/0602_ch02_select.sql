@@ -189,7 +189,10 @@ SELECT ENAME || '은 ' || JOB || '업무이고 연봉은' || (SAL*12 + NVL(COMM,
 -- !! 날짜형(HIREDATE)을 문자형으로 변환 : TO_CHAR(날짜형데이터, 패턴)
     -- YYYY, YY, RR : 년도 / MM : 월 / DD : 일 / DY : 월 / DAY 월요일
     -- HH24, HH12, HH : 시 / AM이나 PM / MI 분 / SS 초
-
+    SELECT ENAME, TO_CHAR(HIREDATE, 'YY/MM/DD AM HH12:/MI/SS') FROM EMP;
+    -- 82년전에 입사한 사원의 데이터
+    SELECT * FROM EMP WHERE TO_CHAR(HIREDATE, 'RR/MM/DD') < '82/01/01';
+    SELECT * FROM EMP WHERE HIREDATE < TO_DATE('82/01/01' , 'RR/MM/DD');
 
 -- 총 연습문제
 
@@ -239,7 +242,7 @@ SELECT * FROM EMP
     WHERE ENAME LIKE '%L%L%' AND (DEPTNO = 30 OR MGR = 7782);
 --12.	입사일이 81년도인 직원의 사번, 사원명, 입사일, 업무, 급여를 출력
 SELECT EMPNO, ENAME, HIREDATE, JOB, SAL FROM EMP
-    WHERE HIREDATE LIKE '82%';
+    WHERE HIREDATE LIKE '81%';
 --13.	입사일이81년이고 업무가 'SALESMAN'이 아닌 직원의 사번, 사원명, 입사일, 
 -- 업무, 급여를 검색하시오.
 SELECT EMPNO, ENAME, HIREDATE, JOB, SAL FROM EMP
