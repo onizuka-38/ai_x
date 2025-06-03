@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<types>
+	<type id="dev" name="Development" color="255,255,255" description="Regular development database" autocommit="false" confirmExecute="false" confirmDataChange="false" smartCommit="false" smartCommitRecover="true" autoCloseTransactions="true" closeTransactionsPeriod="1800" autoCloseConnections="true" closeConnectionsPeriod="14400" modifyPermission=""/>
+	<type id="test" name="Test" color="org.jkiss.dbeaver.color.connectionType.qa.background" description="Test (QA) database" autocommit="true" confirmExecute="false" confirmDataChange="true" smartCommit="false" smartCommitRecover="true" autoCloseTransactions="true" closeTransactionsPeriod="900" autoCloseConnections="true" closeConnectionsPeriod="7200" modifyPermission=""/>
+	<type id="prod" name="Production" color="org.jkiss.dbeaver.color.connectionType.prod.background" description="Production database" autocommit="false" confirmExecute="true" confirmDataChange="true" smartCommit="false" smartCommitRecover="false" autoCloseTransactions="true" closeTransactionsPeriod="600" autoCloseConnections="true" closeConnectionsPeriod="3600" modifyPermission=""/>
+</types>
