@@ -1,1 +1,1 @@
-{"resources":{"0603_ch03_join.sql":{"default-datasource":"oracle_thin-197334254e0-39bc196a157ffa2f","default-schema":"SCOTT"}}}
+{"resources":{"0603_ch03_joins.sql":{"default-schema":"SCOTT","default-datasource":"oracle_thin-197334254e0-39bc196a157ffa2f"},"0603_ch04_DDL_DML_DCL.sql":{"default-schema":"SCOTT","default-datasource":"oracle_thin-197334254e0-39bc196a157ffa2f"},"Scripts/Script.sql":{"default-schema":"SCOTT","default-datasource":"oracle_thin-197334254e0-39bc196a157ffa2f"}}}
