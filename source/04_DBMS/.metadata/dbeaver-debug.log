@@ -1536,3 +1536,46 @@ DROP SEQUENCE FRIEND_SEQ, Error Message = ORA-02289: sequence does not exist
 
 	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:710)
 	... 26 more
+2025-06-04 15:50:42.322 - SQL Error [923] [42000]: ORA-00923: FROM keyword not found where expected
+
+
+Error position: line: 10 pos: 25
+org.jkiss.dbeaver.model.sql.DBSQLException: SQL Error [923] [42000]: ORA-00923: FROM keyword not found where expected
+
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:130)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:657)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$2(SQLQueryJob.java:550)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:569)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:1043)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:4363)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:128)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:189)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:126)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5145)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:119)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.sql.SQLSyntaxErrorException: ORA-00923: FROM keyword not found where expected
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:702)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:608)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1335)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:1041)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:443)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:533)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:176)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:1050)
+	at oracle.jdbc.driver.OracleStatement.prepareDefineBufferAndExecute(OracleStatement.java:1318)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1197)
+	at oracle.jdbc.driver.OracleStatement.executeSQLSelect(OracleStatement.java:1721)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1518)
+	at oracle.jdbc.driver.OracleStatement.executeInternal(OracleStatement.java:2557)
+	at oracle.jdbc.driver.OracleStatement.execute(OracleStatement.java:2506)
+	at oracle.jdbc.driver.OracleStatementWrapper.execute(OracleStatementWrapper.java:334)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:344)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:128)
+	... 12 more
+Caused by: Error : 923, Position : 25, SQL = SELECT FRIEND_SEQ.NEXTVAL, Original SQL = SELECT FRIEND_SEQ.NEXTVAL, Error Message = ORA-00923: FROM keyword not found where expected
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:710)
+	... 28 more
