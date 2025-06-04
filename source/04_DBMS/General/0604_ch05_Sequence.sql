@@ -3,8 +3,9 @@ DROP SEQUENCE FRIEND_SEQ;
 CREATE SEQUENCE FRIEND_SEQ
 	START WITH 1 -- 1부터 시작(기본값)
 	INCREMENT BY 1 -- 1씩 증가(기본값)
-
-
+	MAXVALUE 9999 -- 최대값
+	MINVALUE 1   -- 최소값
+	NOCYCLE -- CYCLE : 순차번호 9999->1
 
 
 
