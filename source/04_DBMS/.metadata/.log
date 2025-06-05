@@ -7284,3 +7284,16 @@ Error : 2289, Position : 14, SQL = DROP SEQUENCE MEMBER_SQ, Original SQL = DROP 
 	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:5145)
 	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:119)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2025-06-04 17:13:31.328 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=21.0.5
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko
+Framework arguments:  -eclipse.keyring C:\Users\Admin\AppData\Roaming\DBeaverData\secure\secure_storage
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -eclipse.keyring C:\Users\Admin\AppData\Roaming\DBeaverData\secure\secure_storage
+
+!ENTRY org.eclipse.ui 4 4 2025-06-04 17:13:59.816
+!MESSAGE Unable to create menu item "null", command "com.dbeaver.ai.sql.suggestion" not defined
+
+!ENTRY org.eclipse.ui 2 2 2025-06-04 17:14:01.228
+!MESSAGE Invalid preference category path: org.eclipse.debug.ui.ConsolePreferencePage (bundle: org.eclipse.ui.console, page: org.eclipse.ui.internal.console.ansi.preferences.AnsiConsolePreferencePage)
