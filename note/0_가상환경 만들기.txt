@@ -1,0 +1,38 @@
+※ 가상환경 만들기(ml-dl-nlp / llm-lab)
+
+(현재 존재하는 가상환경 목록 확인) conda env list
+(가상환경 생성:-n은 --name을 의미) 
+conda create -n ml-dl-nlp python=3.10 
+
+(생성한 가상환경으로 전환) conda activate ml-dl-nlp 
+(pip 최신버전으로 업데이트) python.exe -m pip install --upgrade pip 
+pip install jupyter numpy==1.23.5 pandas==1.5.3  matplotlib==3.7.0 seaborn==0.12.2 scikit-learn==1.2.1
+pip install tensorflow==2.10.0
+
+(특정 패키지 설치 확인 ) conda list | findstr jupyter
+                                pip show 패키지명
+
+(가상환경에서 Jupyter를 설치해야 함) conda install ipykernel
+(가상환경을 Jupyter에서 선택 가능한 커널로 등록) python -m ipykernel install --user --name ml-dl-nlp --display-name "ml-dl-nlp" 
+
+(가상환경 지우기 : conda env remove --name 가상환경이름 )
+(가상환경 등록 확인 : jupyter kernelspec list)
+(삭제된 가상환경 jupyter 커널 목록에서 삭제 하기 : jupyter kernelspec remove 가상환경이름)
+
+(주피터랩으로 들어가도 되나 우리는 주피터 노트북 사용 예정 : jupyter lab --notebook-dir=D:\ai_x\source\05_deepLearning)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
