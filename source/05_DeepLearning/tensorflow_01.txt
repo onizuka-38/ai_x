@@ -1,0 +1,68 @@
+요약
+
+placeholder: 데이터를 넣는 입구 (나중에 실제 데이터를 투입)
+
+Variable: 학습 가능한 변수(가중치, 편향)
+
+matmul: 행렬 곱셈 (입력 x 가중치)
+
+relu/sigmoid: 비선형 변환 함수 (활성화 함수)
+
+cost: 예측과 정답의 차이(오차)를 나타내는 값
+
+Optimizer: cost를 최소화하는 방향으로 변수 업데이트
+
+Session: 텐서플로우 그래프 실행
+
+---------------------------------------------
+
+tf.placeholder: 학습시 데이터를 나중에 넣겠다는 일종의 '입구'를 만듦
+
+shape=[None, 2]에서 None은 샘플 개수(행 수)로, 배치 단위로 유연하게 처리하려고 사용
+
+두 번째 값 2는 입력 특징(피처) 수
+
+dtype=tf.float32는 입력 타입이 32비트 실수형임을 명시
+
+X: 입력 데이터용 placeholder
+
+y: 정답(라벨)용 placeholder
+
+tf.Variable: 학습을 통해 바뀌는 변수(여기서는 가중치와 편향)
+
+tf.random.normal: 정규분포(평균 0, 표준편차 1)에서 무작위 값으로 초기화
+
+[2, 10]: 입력 2개, 출력 10개 뉴런(노드)
+
+[10]: 편향(bias)도 출력과 동일한 수
+
+tf.matmul(X, W1): X와 W1 행렬 곱셈 (선형 결합)
+
+tf.nn.relu: ReLU(렐루) 활성화 함수. 0보다 작으면 0, 크면 그대로 통과(비선형성 부여)
+
+logits: 시그모이드 함수 적용 전의 순수한 선형값(로짓값)
+
+tf.sigmoid: 시그모이드 함수. 0~1사이 확률로 변환 (이진분류)
+
+tf.nn.sigmoid_cross_entropy_with_logits: 시그모이드+크로스엔트로피(이진분류용 손실함수)
+
+tf.reduce_mean: 전체 샘플에 대해 평균을 구함
+→ 모델이 예측한 값과 실제 정답의 차이를 수치로 나타냄
+
+GradientDescentOptimizer: 경사하강법(대표적인 최적화 알고리즘)
+
+learning_rate=0.01: 한 번에 얼마나 많이 가중치를 조정할지 (학습률)
+
+minimize(cost): cost(손실)을 최소화하도록 파라미터(가중치/편향) 업데이트
+
+tf.Session(): 텐서플로우 그래프 실행을 위한 세션 생성
+
+tf.global_variables_initializer(): 변수(W, b 등) 초기화
+
+sess.run([train, cost], feed_dict={...})
+
+feed_dict로 실제 데이터를 placeholder에 넣고, train과 cost를 한 번 실행
+
+train: 파라미터를 한 번 업데이트
+
+cost: 이번 반복에서의 손실값
