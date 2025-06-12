@@ -1,0 +1,17 @@
+       예측0   예측1
+실제0  TN      FP
+실제1  FN      TP
+
+※ accuracy(정확도) = (TN+TP)/(TN+FP+FN+TP)
+※ precision(정밀도) = TP / (FP+TP) - 예측값기준
+※ recall(재현율) = TP / (FN+TP) - 실제값 기준
+※ f1 score = recall과 precision의 조화평균
+       precision*recall
+   2* ───────
+       presision+recall
+
+- Precision ↑ → Recall ↓  
+- Recall ↑ → Precision ↓
+
+- precisin을 높이려면 확실한 것만 Positive로 예측
+- recall을 높이려면 조금이라도 가능성이 있으면 Positive로 예측
