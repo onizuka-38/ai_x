@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>네이버 지식인 분석</title>
+
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        max-width: 900px;
+        margin: auto;
+        padding: 30px;
+        background-color: #f9f9f9;
+        color: #333;
+      }
+
+      h1 {
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+
+      form {
+        margin-bottom: 25px;
+      }
+
+      label {
+        margin-right: 10px;
+      }
+
+      input[type="text"],
+      input[type="number"] {
+        padding: 5px;
+        font-size: 14px;
+        margin-right: 10px;
+      }
+
+      button {
+        padding: 5px 10px;
+        font-size: 14px;
+        background-color: #007acc;
+        color: white;
+        border: none;
+        border-radius: 5px;
+      }
+
+      h2 {
+        margin-top: 30px;
+        font-size: 20px;
+        border-bottom: 2px solid #ccc;
+        padding-bottom: 5px;
+      }
+
+      ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
+
+      li {
+        padding: 3px 0;
+        font-size: 16px;
+      }
+
+      img {
+        margin-top: 15px;
+        max-width: 100%;
+        border: 1px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🔍 네이버 지식인 워드클라우드 분석기</h1>
+
+    <form method="POST">
+      <label>검색어: </label>
+      <input type="text" name="keyword" required />
+      <label>개수: </label>
+      <input type="number" name="count" value="50" min="10" max="1000" />
+      <button type="submit">분석하기</button>
+    </form>
+
+    {% if top_words %}
+    <h2>📊 상위 빈도 단어</h2>
+    <ul>
+      {% for word, freq in top_words %}
+      <li>{{ word }}: {{ freq }}</li>
+      {% endfor %}
+    </ul>
+
+    <h2>☁️ 워드클라우드</h2>
+    <img
+      src="{{ url_for('static', filename='wordcloud.png') }}"
+      alt="워드클라우드"
+    />
+
+    {% if sim_words %}
+    <h2>🧠 Word2Vec 유사 단어</h2>
+    <ul>
+      {% for word, score in sim_words %}
+      <li>{{ word }}: {{ score|round(3) }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %} {% endif %}
+  </body>
+</html>
