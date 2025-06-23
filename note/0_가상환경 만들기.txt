@@ -1,8 +1,7 @@
 ※ 가상환경 만들기(ml-dl-nlp / llm-lab)
 
 (현재 존재하는 가상환경 목록 확인) conda env list
-(가상환경 생성:-n은 --name을 의미) 
-conda create -n ml-dl-nlp python=3.10 
+(가상환경 생성:-n은 --name을 의미) conda create -n ml-dl-nlp python=3.10 
 
 (생성한 가상환경으로 전환) conda activate ml-dl-nlp 
 (pip 최신버전으로 업데이트) python.exe -m pip install --upgrade pip 
@@ -15,19 +14,26 @@ pip install tensorflow==2.10.0
 (가상환경에서 Jupyter를 설치해야 함) conda install ipykernel
 (가상환경을 Jupyter에서 선택 가능한 커널로 등록) python -m ipykernel install --user --name ml-dl-nlp --display-name "ml-dl-nlp" 
 
-(가상환경 지우기 : conda env remove --name 가상환경이름 )
 (가상환경 등록 확인 : jupyter kernelspec list)
 (삭제된 가상환경 jupyter 커널 목록에서 삭제 하기 : jupyter kernelspec remove 가상환경이름)
+(가상환경 지우기 : conda env remove --name 가상환경이름 )
 
 (주피터랩으로 들어가도 되나 우리는 주피터 노트북 사용 예정 : jupyter lab --notebook-dir=D:\ai_x\source\05_deepLearning)
 
 
+※ mnist 중간에 설치한것
+pip install opencv-contrib-python
 
-
-
-
-
-
+※ 자연어처리에 설치한 것
+pip install nltk==3.7 # 영어권 자연어처리
+pip install konlpy  # 한글자연어처리(java필요)
+pip install python-mecab-ko # 한글자연어처리(C++필요)
+pip install wordcloud
+pip install gensim
+pip install python-dotenv #.env읽어들이기(강추)
+pip install python-decouple #.env읽어들이기(주피터환경에서 안 될 수도 있어)
+pip install statsmodels==0.13.5 # 주기적인 데이터 트랜드 추이
+pip install prophet # facebook에서 개발한 시계열 예측 라이브러리
 
 
 
