@@ -35,6 +35,14 @@ pip install python-decouple #.env읽어들이기(주피터환경에서 안 될 �
 pip install statsmodels==0.13.5 # 주기적인 데이터 트랜드 추이
 pip install prophet # facebook에서 개발한 시계열 예측 라이브러리
 
+허깅페이스(다양한 LLM모델과 환경을 제공)
+conda install pytorch torchvision -c pytorch # 파이토치
+pip install sympy==1.13.1 fsspec
+pip install transformers
+pip install sentencepiece
+pip install hf_xet
+pip install pillow
+pip install sacremoses
 
 
 
