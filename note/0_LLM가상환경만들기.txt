@@ -1,0 +1,29 @@
+※ 가상환경 만들기(ml-dl-nlp / llm)
+
+(현재 존재하는 가상환경 목록 확인) conda env list
+(가상환경 생성:-n은 --name을 의미) conda create -n llm python=3.10 
+
+(생성한 가상환경으로 전환) conda activate llm
+(pip 최신버전으로 업데이트) python.exe -m pip install --upgrade pip 
+
+(가상환경에서 Jupyter를 설치해야 함) conda install ipykernel
+(가상환경을 jupyter에 선택가능한 커널로 등록)
+python -m ipykernel install --user --name llm --display-name "llm(ipykernel)"
+(가상환경 커널 등록 확인) jupyter kernelspec list
+
+cf)가상환경 지우기 : conda env remove --name 가상환경명
+
+※ ollama 로컬 model 들 사용
+pip install langchain-ollama       # llama model
+pip install langchain-openai       # gpt model
+pip install python-dotenv          # .env파일 load
+pip install langchain-anthropic    # claude model 
+
+
+
+
+
+
+
+
+
