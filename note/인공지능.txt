@@ -1,0 +1,34 @@
+인공지능학습 : 비지도학습 vs 지도학습(DNN)
+
+- DNN
+- 스케일조정(정규화, 표준화)하는 목적? 계산의 안정성 향상
+
+- 모델구현
+model = Sequential() - 순차적 레이어 모델 생성 / model = Model() 병렬모델
+이진분류 출력층 model.add(Dense(1, activation='sigmoid'))
+다중분류 출력층 model.add(Dense(n, activation='softmax'))
+
+- 학습과정 설정
+손실함수 설정(이중분류, 다중분류 categorical_crossentropy)
+옵티마이저(Adam)
+평가지표(metrics)
+
+       예측0   예측1
+실제0  TN      FP
+실제1  FN      TP
+
+※ accuracy(정확도) = (TN+TP)/(TN+FP+FN+TP)
+※ precision(정밀도) = TP / (FP+TP) - 예측값기준
+※ recall(재현율) = TP / (FN+TP) - 실제값 기준
+
+- accuracy를 늘리기 위한 방법 : 데이터확보, 레이어, units, 활성화함수, epoch, optimizer
+
+- 과적합 방지를 위한 방법 : 데이터확보, 증강, Dropout, 활성화relu
+
+- 모델저장 : 딥러닝에서의 모델 저장 : *.h5
+
+- 자연어처리 konlpy(nouns: 명사만 추출 / pos: 한 문장을 단어 단위로 나눠. 품사 태깅)
+
+- RNN/LSTM : 시계열 데이터 예측, 자연어생성, 작곡편곡
+
+
