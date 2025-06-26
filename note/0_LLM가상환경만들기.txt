@@ -19,6 +19,9 @@ pip install langchain-openai       # gpt model
 pip install python-dotenv          # .env파일 load
 pip install langchain-anthropic    # claude model 
 
+pip install openai
+pip install streamlit
+
 
 
 
