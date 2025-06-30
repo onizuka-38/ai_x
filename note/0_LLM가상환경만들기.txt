@@ -25,7 +25,7 @@ pip install streamlit
 pip install matplotlib
 pip install sounddevice scipy # 마이크 입력 녹음하여 전송
 
-
+pip install python-decouple
 
 
 
