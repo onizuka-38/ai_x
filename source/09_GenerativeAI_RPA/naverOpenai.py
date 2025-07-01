@@ -4,6 +4,7 @@ import urllib.request
 from dotenv import load_dotenv
 import json
 import pandas as pd
+from openai import OpenAI
 
 def get_naver_api_data(media, word):
   "word에 대해 media 검색한 결과의 str을 return"
@@ -36,3 +37,31 @@ def str_json_dataframe(str_json_result):
   df['순위']=range(1, len(df)+1)
   df.set_index("순위", inplace=True)
   return df
+
+def aiconn(prompt):
+  # LLM 요청하여 메세지 받기
+  load_dotenv('.env')
+  client = OpenAI()
+  completion = client.chat.completions.create(
+    model="gpt-4.1-nano",
+    messages=[{"role":"user", "content":prompt}],
+    # max_tokens=300
+  )
+  # 5. 분석글 return
+  return completion.choices[0].message.content
+
+def get_openai_shopping_analysis(wb):
+  # 2. prev_list, now_list 시트 전체 내용 불러오기
+  prev_sheet = wb.sheets['prev_list']
+  now_sheet  = wb.sheets['now_list']
+  prev_data = prev_sheet.used_range.value # 사용된 범위의 데이터
+  now_data = now_sheet.used_range.value
+
+  # 3. 프롬프트 작성
+  prompt = f"""다음 두 목록을 비교분석하여, prev_list목록에서 now_list목록으로
+  바뀐 주요 특징을 추출해 줘.
+  prev_list 목록 : {prev_data}
+  now_list 목록 : {now_data}
+  비교 분석 결과를 바탕으로 구체적인 수치, 상품명, 쇼핑몰명 등을 언급하여 
+  한글로 100자 이내로 분석글을 작성해 줘."""
+  return aiconn(prompt=prompt)
