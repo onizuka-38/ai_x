@@ -63,7 +63,7 @@ def get_openai_shopping_analysis(wb):
   prev_list 목록 : {prev_data}
   now_list 목록 : {now_data}
   비교 분석 결과를 바탕으로 구체적인 수치, 상품명, 쇼핑몰명 등을 언급하여 
-  한글로 100자 이내로 분석글을 작성해 줘."""
+  한글로 200자 이내로 분석글을 작성해 줘."""
   return aiconn(prompt=prompt)
 
 def get_openai_news_summarize(str_news_data):

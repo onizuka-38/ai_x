@@ -1,3 +1,4 @@
+import os
 import datetime
 import shutil # 파일 및 디렉토리 작업 도와주는 lib
 
@@ -35,7 +36,7 @@ def update_now_list(wb, df_shopping):
 def save_close_file(file_path, wb):
   # 7. 파일 저장 및 닫기
   wb.save(file_path)
-  # wb.close()
+  wb.close()
   print('workbook 저장 완료')
 
 def update_now_report(wb, analysis, summary):
@@ -69,3 +70,10 @@ def update_now_report(wb, analysis, summary):
   # summary는 A8셀에 입력
   now_sheet.range('A8').value = summary
   now_sheet.range('A8').api.WrapText = True # 줄바꿈 활성화
+  # now_sheet를 pdf파일로 생성(genai_rpa_2507011655.pdf)
+  timestamp = datetime.datetime.now().strftime("%y%m%d%H%M%S")
+  file_name = f"genai_rpa_{timestamp}.pdf"
+  file_path = os.path.join(os.getcwd(), file_name)
+  now_sheet.api.ExportAsFixedFormat(0, file_path)
+                                    #"D:/ai_x/source/09_generativeAI_RPA/"+file_name)
+  print('pdf 저장완료 :', file_path)
