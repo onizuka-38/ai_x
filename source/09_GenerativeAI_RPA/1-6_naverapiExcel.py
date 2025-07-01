@@ -12,7 +12,7 @@ def main():
   hs.handle_init_sheet(file_path=file_path, wb=wb)
   
   # 5. 네이버 api 쇼핑목록 데이터 출력(json형태str->dict->dataframe)
-  str_data = get_naver_api_data("shop", "포켄스")
+  str_data = get_naver_api_data("shop", "애완용품")
   df_shopping = str_json_dataframe(str_data)
   
   # 6. 'now_list'시트의 모든 내용을 클리어하고, df_shopping내용('A1'셀)을 업데이트
