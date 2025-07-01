@@ -1,0 +1,15 @@
+교안 19p
+1. python –m venv .venv   ".venv"라는 이름의 가상환경 생성
+2. .venv\Scripts\activate  가상환경 들어가기
+
+python.exe -m pip install --upgrade pip
+pip install jupyter numpy==1.23.5 pandas==1.5.3
+pip install xlwings                                  엑셀 파일 활용
+pip install python-decouple python-dotenv
+pip install openai
+pip install pyinstaller    py(파이썬코드)파일을 EXE(실행파일)로 바꿀 때 필요
+
+pip freeze > requirements.txt 현재 가상환경 라이브러리목록
+
+py파일을 실행화일로 만들기 : pyinstaller --onefile 2-2_naverReport.py 을 실행하면 dist폴더에
+exe실행 파일을 root로 옮겨 파일명을 "genai_rpa.exe"로 변경
