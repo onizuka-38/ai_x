@@ -65,3 +65,10 @@ def get_openai_shopping_analysis(wb):
   비교 분석 결과를 바탕으로 구체적인 수치, 상품명, 쇼핑몰명 등을 언급하여 
   한글로 100자 이내로 분석글을 작성해 줘."""
   return aiconn(prompt=prompt)
+
+def get_openai_news_summarize(str_news_data):
+  # 뉴스 요약 return
+  prompt = f"""다음 뉴스 내용을 구체적인 수치, 고유명사를 언급하며 글머리를 활용하여 
+  한글 200자 이내로 요약 글을 작성해 줘.
+  뉴스 내용 {str_news_data}"""
+  return aiconn(prompt=prompt)

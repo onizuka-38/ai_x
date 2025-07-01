@@ -37,3 +37,26 @@ def save_close_file(file_path, wb):
   wb.save(file_path)
   # wb.close()
   print('workbook 저장 완료')
+
+def update_now_report(wb, analysis, summary):
+  import xlwings as xw
+  wb = xw.Book('genai_rpa.xlse')
+  # 'prev_report'시트 삭제, 'now_report' 시트 복사(prev_report), 분석글 now_report 업데이트
+  # 'prev_report'시트 삭제
+  sheet_names = [s.name for s in wb.sheets]
+  if 'prev_report' in sheet_names:
+    wb.sheets['prev_report'].delete()
+    print('prev_report 시트 삭제 완료')
+  else:
+    print('prev_report 시트 존재하지 않아 삭제 못함')
+  # 'now_report' 시트 복사(prev_report)
+  if 'now_report' in sheet_names:
+    now_sheet = wb.sheets['now_report']
+    prev_sheet = now_sheet.copy(after=now_sheet)
+    prev_sheet.name = 'prev_report'
+    print('prev_report 시트 복사 완료')
+  else:
+    print('now_report 시스트가 없어서 작업을 중단합니다')
+    wb.close() # 파일 닫고 작업 중단
+    return
+  # 분석글(analysis, summary)을 now_report 시트에 업데이트
