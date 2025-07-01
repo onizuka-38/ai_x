@@ -23,7 +23,7 @@ def main():
   # 쇼핑 목록 분석
   result_analysis = get_openai_shopping_analysis(wb)
   # 뉴스 분석
-  str_news_data = get_naver_api_data("news", "포컨스") # 뉴스검색 목록
+  str_news_data = get_naver_api_data("news", "애완용품") # 뉴스검색 목록
   result_summary = get_openai_news_summarize(str_news_data)
   # 'prev_report'시트 삭제, 'now_report' 시트 복사(prev_report), 분석글 now_report 업데이트
   hs.update_now_report(wb, result_analysis, result_summary)

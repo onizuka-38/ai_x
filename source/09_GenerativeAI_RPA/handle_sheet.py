@@ -39,8 +39,6 @@ def save_close_file(file_path, wb):
   print('workbook 저장 완료')
 
 def update_now_report(wb, analysis, summary):
-  import xlwings as xw
-  wb = xw.Book('genai_rpa.xlse')
   # 'prev_report'시트 삭제, 'now_report' 시트 복사(prev_report), 분석글 now_report 업데이트
   # 'prev_report'시트 삭제
   sheet_names = [s.name for s in wb.sheets]
@@ -60,3 +58,14 @@ def update_now_report(wb, analysis, summary):
     wb.close() # 파일 닫고 작업 중단
     return
   # 분석글(analysis, summary)을 now_report 시트에 업데이트
+  current_dt = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+  # 시간은 A3셀에 입력
+  now_sheet.range('A3').value = current_dt + " 기준" # 오른쪽 정렬
+  # now_sheet.range('A3').api.HorizontalAlignment = xw.constants.HAlign.xlHAlignRight
+  now_sheet.range('A3').api.HorizontalAlignment = -4152
+  # analysis는 A5셀에 입력
+  now_sheet.range('A5').value = analysis
+  now_sheet.range('A5').api.WrapText = True # 내용이 셀보다 길면 자동 줄바꿈 활성화
+  # summary는 A8셀에 입력
+  now_sheet.range('A8').value = summary
+  now_sheet.range('A8').api.WrapText = True # 줄바꿈 활성화
