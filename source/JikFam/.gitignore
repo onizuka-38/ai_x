@@ -1,6 +1,0 @@
-.env
-.ipynb_checkpoints/
-data/
-CropWeather_ServiceKey.txt
-.gitignore
-기상데이터/
