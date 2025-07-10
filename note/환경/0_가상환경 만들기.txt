@@ -1,0 +1,92 @@
+※ 가상환경 만들기(ml-dl-nlp / llm)
+
+(현재 존재하는 가상환경 목록 확인) conda env list
+(가상환경 생성:-n은 --name을 의미) conda create -n ml-dl-nlp python=3.10 
+
+(생성한 가상환경으로 전환) conda activate ml-dl-nlp 
+(pip 최신버전으로 업데이트) python.exe -m pip install --upgrade pip 
+pip install jupyter numpy==1.23.5 pandas==1.5.3  matplotlib==3.7.0 seaborn==0.12.2 scikit-learn==1.2.1
+pip install tensorflow==2.10.0
+
+(특정 패키지 설치 확인 ) conda list | findstr jupyter
+                                pip show 패키지명
+
+(가상환경에서 Jupyter를 설치해야 함) conda install ipykernel
+(가상환경을 Jupyter에서 선택 가능한 커널로 등록) python -m ipykernel install --user --name ml-dl-nlp --display-name "ml-dl-nlp" 
+
+(가상환경 등록 확인 : jupyter kernelspec list)
+(삭제된 가상환경 jupyter 커널 목록에서 삭제 하기 : jupyter kernelspec remove 가상환경이름)
+(가상환경 지우기 : conda env remove --name 가상환경이름 )
+
+(주피터랩으로 들어가도 되나 우리는 주피터 노트북 사용 예정 : jupyter lab --notebook-dir=D:\ai_x\source\05_deepLearning)
+
+
+※ mnist 중간에 설치한것
+pip install opencv-contrib-python
+
+※ 자연어처리에 설치한 것
+pip install nltk==3.7 # 영어권 자연어처리
+pip install konlpy  # 한글자연어처리(java필요)
+pip install python-mecab-ko # 한글자연어처리(C++필요)
+pip install wordcloud
+pip install gensim
+pip install python-dotenv #.env읽어들이기(강추)
+pip install python-decouple #.env읽어들이기(주피터환경에서 안 될 수도 있어)
+pip install statsmodels==0.13.5 # 주기적인 데이터 트렌드 추이
+pip install prophet # facebook에서 개발한 시계열 예측 라이브러리
+
+※ 허깅페이스(다양한 llm 모델과 환경을 제공하는 프레임워크)
+conda install pytorch torchvision -c pytorch # 파이토치
+pip install sympy==1.13.1 fsspec
+pip install transformers
+pip install sentencepiece # 자연어의 Tokenizer 기능(구글 作)
+pip install hf_xet # 허깅페이스 hub 대용량 파일을 빠르게 업로드/다운로드 지원하는 도구
+pip install pillow
+pip install sacremoses # 아래의 영한번역에서 경고 줄이기도 하고 번역품질도 높아져
+
+pip freeze > requirements.txt
+notepad requirements.txt
+pip install -r requirements.txt #requirements.txt 에 있는 라이브러리들 설치
+
+의사결정나무모형 트리 구조 보기 ml-dl-nlp환경에서
+conda install -c conda-forge graphviz (의사결정나무 그래프를 생성하는 도구)
+pip install pydot ( Graphviz의 .dot 데이터를 이미지로 변환하는 라이브러리)
+dot -V (확인)
+
+아나콘다 base환경에서
+conda install  graphviz
+pip install pydot
+
+자료불균형(smote)과 앙상블 알고리즘 다운
+conda install -c conda-forge imbalanced-learn=0.9.1
+
+# 설치전 의존성 확인
+pip install --dry-run xgboost==1.7.3
+# 위의 의존성 확인에서 문제없으면 설치
+pip install xgboost==1.7.3
+
+pip install lightgbm
+
+pip install --dry-run catboost==1.2
+pip install catboost==1.2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
