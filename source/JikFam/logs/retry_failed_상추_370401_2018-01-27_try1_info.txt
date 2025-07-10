@@ -1,1 +1,0 @@
-[예외] HTTPConnectionPool(host='apis.data.go.kr', port=80): Read timed out. (read timeout=10)
