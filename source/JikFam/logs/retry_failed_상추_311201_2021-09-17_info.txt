@@ -1,0 +1,8 @@
+[오류] ❌ 서비스 오류 (SERVICE ERROR 응답)
+<OpenAPI_ServiceResponse>
+	<cmmMsgHeader>
+		<errMsg>SERVICE ERROR</errMsg>
+		<returnAuthMsg>HTTP ROUTING ERROR</returnAuthMsg>
+		<returnReasonCode>04</returnReasonCode>
+	</cmmMsgHeader>
+</OpenAPI_ServiceResponse>

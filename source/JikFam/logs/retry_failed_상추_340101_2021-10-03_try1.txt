@@ -1,0 +1,1 @@
+{"response":{"body":{"dataType":"JSON","items":{"item":[]},"numOfRows":100,"pageNo":1,"totalCount":0},"header":{"resultCode":"0","resultMsg":"정상"}}}
