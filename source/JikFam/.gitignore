@@ -1,5 +1,9 @@
 .env
 .ipynb_checkpoints/
+<<<<<<< HEAD
 data/
 logs/
 success/
+=======
+data/
+>>>>>>> bd01ccda674a3059665f3b51ae5b59319a896530

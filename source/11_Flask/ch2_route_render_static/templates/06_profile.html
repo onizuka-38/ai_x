@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="{{ url_for('static', filename='file.css' ) }}"
+          rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+</head>
+<body>
+    <p class="fs-1 text-warning bg-dark">{{name}}님 연습화면</p>
+    <button type="button" class="btn btn-danger">Danger</button>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">이름</th>
+          <th scope="col">나이</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{name}}</td>
+          <td>{{age}}</td>
+        </tr>
+      </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,22 @@
+body{
+    background-color: lightyellow;
+}
+h1 {color:blue;}
+h2{
+    color:darkgreen;
+}
+img {width: 100px;}
+
+table{
+    border:2px solid #444444;
+    border-collapse: collapse;
+}
+
+thead{
+    background-color: bisque;
+}
+
+td{
+    text-align: center;
+    width: 10%;
+}
