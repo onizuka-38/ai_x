@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+  <link href="{{url_for('static', filename='flask.png')}}" rel="icon">
+  <link href="{{url_for('static', filename='file.css')}}" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <h1>{{member.name}}님 join complete</h1>
+  <h2>아이디 : {{member.id}}</h2>
+  <h2>비밀번호 : {{member.pw | mask_pw}}</h2>
+  <h2>주소 : {{member.addr}}</h2>
+  <form action="/welcome" method="get">
+    <p><input type="hidden" name="name" value="{{member.name}}"></p>
+    <p><input type="number" name="value" placeholder="value값"></p>
+    <p><input type="submit" value="GET전송"></p>
+</body>
+</html>
