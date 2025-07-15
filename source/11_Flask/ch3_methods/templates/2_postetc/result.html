@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+  <link href="{{url_for('static', filename='flask.png')}}" rel="icon">
+  <link href="{{url_for('static', filename='file.css')}}" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <h1>{{member.name}}님 join complete</h1>
+  <h2>아이디 : {{member.id}}</h2>
+  <h2>비밀번호 : {{member.pw | mask_pw}}</h2>
+  <h2>주소 : {{member.addr}}</h2>
+  <p><input type="text" id="name" value="{{member.name}}"></p>
+  <p><input type="number" id="id" value="{{member.id}}"></p>
+  <p><input type="password" id="pw" value="{{member.pw}}"></p>
+  <p><input type="text" id="addr" value="{{member.addr}}"></p>
+  <p>
+    <button id="update">수정</button>
+    <button id="delete">삭제</button>
+  </p>  
+  <p id="result"></p>
+</body>
+</html>
+<!-- buton#update click 할 때 : #name, #id, #pw, #addr "/update/name/id/pw/addr을 patch방식 요청"-->
+<script>
+  document.getElementById("update").addEventListener("click", ()=>{
+    let name = document.getElementById("name").value;
+    let id   = document.getElementById("id").value;
+    let pw   = document.getElementById("pw").value;
+    let addr = document.getElementById("addr").value;
+    name = encodeURIComponent(name);
+    addr = encodeURIComponent(addr);
+    fetch(`/update/${name}/${id}/${pw}/${addr}`, {method:'PATCH'})
+    .then(response => {
+      if(!response.ok){
+        alert("수정에 실패했습니다.");
+        return;
+      }
+      return response.text();
+    })
+    .then(data =>{
+      document.getElementById("result").innerHTML = data;
+    });
+  });
+</script>
