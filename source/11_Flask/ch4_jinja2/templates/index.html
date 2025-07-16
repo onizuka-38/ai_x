@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <link href="{{ url_for('static', filename='flask.png') }}" rel="icon" />
+    <link
+      href="{{ url_for('static', filename='file.css') }}"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- name, name_length, price, names_list 변수 사용 -->
+    <h1>이름을 입력해주세요</h1>
+    <form action="/" method="post">
+      <input
+        type="text"
+        name="name"
+        placeholder="이름을 입력해주세요"
+        value="{% if name %}{{name | trim | upper}}{% endif %}"
+      />
+      <input type="submit" value="전송" />
+    </form>
+    {% if name_length and name_length%2==0 %}
+    <h1>이름의 길이가 짝수 : {{name}}({{ name | length }} 글자)</h1>
+
+    {% elif name_length%2 != 0 %}
+    <h1>이름의 길이가 홀수 : {{name}}({{ name | length }} 글자)</h1>
+
+    {% else %}
+    <h1>이름이 입력되지 않았습니다</h1>
+
+    {% endif %}
+  </body>
+</html>
