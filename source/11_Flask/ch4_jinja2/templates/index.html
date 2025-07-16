@@ -32,6 +32,12 @@
 
     {% else %}
     <h1>이름이 입력되지 않았습니다</h1>
+    {% if names_list %}
+      {% for name in names_list %}
+        <p></p>
+
+    {% else %}
+      <p>추가된 이름이 없습니다</p>
 
     {% endif %}
   </body>
