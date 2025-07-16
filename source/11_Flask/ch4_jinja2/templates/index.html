@@ -32,13 +32,22 @@
 
     {% else %}
     <h1>이름이 입력되지 않았습니다</h1>
-    {% if names_list %}
-      {% for name in names_list %}
-        <p></p>
+    {% endif %} {% if names_list %}
+    <ul>
+      {% for name in names_list %} {% if loop.last %}
+      <!--마지막 이름만 진하게 나오게 생성 -->
+      <li><b>{{loop.index}}/{{names_list | length}}번째 이름 : {{name}}</b></li>
+      <!-- <strong>{{name}}</strong> -->
+      {% else %}
+      <!-- 마지막 이름이 아닌 경우 일반 텍스트로 출력 -->
+      <li>{{loop.index}}/{{names_list | length}}번째 이름 : {{name}}</li>
+      {% endif %} {% endfor %}
+    </ul>
 
     {% else %}
-      <p>추가된 이름이 없습니다</p>
+    <p>추가된 이름이 없습니다</p>
 
     {% endif %}
+    <h2>가격 : {{ '{:,}'.format(price) }} 원</h2>
   </body>
 </html>
