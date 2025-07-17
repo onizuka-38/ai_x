@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+  <!-- 파비콘 지정 : 구브라우저의 경우 ico 파일 -->
+  <link href="{{ url_for('static', filename='img/favicon.ico') }}" rel="icon"/>
+  <!-- css -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <title>{% block title %}{% endblock %}</title>
+</head>
+  {% block content %}{% endblock %}
+  {% include 'footer.html' %}
+</html>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>

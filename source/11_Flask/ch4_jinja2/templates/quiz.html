@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+  <link href="{{ url_for('static', filename='file.css') }}" rel="stylesheet">
+</head>
+<body>
+  <h1>구구단을 외자</h1>
+  <h2>원하는 구구단을 입력하세요</h2>
+  <form action="" method="post">
+    <input type="number" name="no" 
+      value="{% if no %}{{no}}{% endif %}">
+    <input type="submit" value="구구단 확인하기">
+  </form>
+  <!-- HTML 주석-->
+  {# Jinja2 주석 #}
+  {% if no %}
+    {% for i in range(1, 10) %}
+      <h3>{{no}} * {{i}} = {{no * i}}</h3>
+    {% endfor %}
+  {% else %}
+    <h2>아직 구구단 수 입력 전</h2>
+  {% endif %}
+</body>
+</html>

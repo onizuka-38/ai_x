@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block title %} 업로드 확인 페이지 {% endblock %} {%
+block content %}
+<body onload="onload()">
+  {# bootstrap 5.2 의 jumbotron 페이지 사용 #}
+  <div class="container py-4">
+    <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">업로드 성공</h1>
+        <hr style="color: red" />
+        <img
+          src="{{ url_for('static', filename='img/check.png') }}"
+          alt="upload logo"
+          width="90"
+        />
+        <p class="fs-3">
+          {{ upload_filename }} 파일을 {{safe_filename}} 로 저장했습니다.
+        </p>
+      </div>
+    </div>
+  </div>
+  <script>
+    function onload() {
+      setTimeout(() => {
+        location.href = "/";
+      }, 5000);
+    }
+  </script>
+</body>
+{% endblock %}

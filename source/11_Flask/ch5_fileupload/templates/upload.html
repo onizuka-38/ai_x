@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block title %} 업로드 페이지 {% endblock %} {%
+block content %}
+<body>
+  {# bootstrap 5.2 의 jumbotron 페이지 사용 #}
+  <div class="container py-4">
+    <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">파일 업로드</h1>
+        <hr style="color: red" />
+        <img
+          src="{{ url_for('static', filename='img/upload.png') }}"
+          alt="업로드 이미지"
+          width="90"
+        />
+        <form action="" method="post" enctype="multipart/form-data">
+          <input type="file" name="file" class="form-control mb-3" />
+          <input type="submit" value="업로드" class="btn btn-primary btn-lg" />
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+{% endblock %}
