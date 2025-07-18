@@ -13,7 +13,7 @@ if not os.path.exists(UPLOAD_FOLDER):
 
 app = Flask(__name__)
 #print(app.config)
-# 업로드 용량 제한 (용량 초과시 403 error)
+# 업로드 용량 제한 (용량 초과시 413 error)
 app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024 * 1 
 
 @app.route('/', methods=['GET', 'POST'])

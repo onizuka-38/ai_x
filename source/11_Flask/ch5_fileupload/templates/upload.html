@@ -1,20 +1,22 @@
-{% extends "base.html" %} {% block title %} 업로드 페이지 {% endblock %} {%
-block content %}
+{% extends "base.html" %}
+{% block title %}
+업로드 페이지
+{% endblock %}
+{% block content %}
 <body>
-  {# bootstrap 5.2 의 jumbotron 페이지 사용 #}
+{# bootstrap 5.2 의 jumbotron 페이지 사용 #}
   <div class="container py-4">
     <div class="p-5 mb-4 bg-light rounded-3">
-      <div class="container-fluid py-5">
+      <div class="text-center container-fluid py-5">
         <h1 class="display-5 fw-bold">파일 업로드</h1>
-        <hr style="color: red" />
-        <img
-          src="{{ url_for('static', filename='img/upload.png') }}"
-          alt="업로드 이미지"
-          width="90"
-        />
+        <hr style="color:red" />
+        <img src="{{ url_for('static', filename='img/upload.png') }}" 
+              alt="upload logo" width="90">
         <form action="" method="post" enctype="multipart/form-data">
-          <input type="file" name="file" class="form-control mb-3" />
-          <input type="submit" value="업로드" class="btn btn-primary btn-lg" />
+          <!-- <input type="file" name="file"> -->
+            {{ form.csrf_token }} {# CSRF 보호 정책 설정 #}
+            {{ form.files() }}  {# input 태그 생성 #}
+          <input type="submit" value="업로드" class="btn btn-primary btn-lg">
         </form>
       </div>
     </div>

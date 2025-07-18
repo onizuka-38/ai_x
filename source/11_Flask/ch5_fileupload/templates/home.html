@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}
+업로드 페이지
+{% endblock %}
+{% block content %}
+<body>
+{# bootstrap 5.2 의 jumbotron 페이지 사용 #}
+  <div class="container py-4">
+    <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="text-center container-fluid py-5">
+        <h1 class="display-5 fw-bold">파일 업로드</h1>
+        <hr style="color:red" />
+        <img src="{{ url_for('static', filename='img/upload.png') }}" 
+              alt="upload logo" width="90">
+        <form action="" method="post" enctype="multipart/form-data">
+          <!-- <input type="file" name="file"> -->
+            {{ form.csrf_token }} {# CSRF 보호 정책 설정 #}
+            {{ form.files() }}  {# input 태그 생성 #}
+          <input type="submit" value="업로드" class="btn btn-primary btn-lg">
+        </form>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col" colspan="2" class="text-center">파일명</th>
+            <th scope="col">생성</th>
+            <th scope="col">수정</th>
+            <th scope="col">크기</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% if infos %}
+            {% for info in infos %}
+              <tr>
+                <th scope="row">{{loop.index}}</th>
+                <td onclick="location.href='/download/{{info['name']}}'">
+                  {{info['name']}}
+                </td>
+                <td>
+                  <a href="/delete/{{info['name']}}">삭제</a>
+                </td>
+                <td>{{info['ctime'].strftime("%Y-%m-%d %H:%M")}}</td>
+                <td>{{info['mtime'].strftime("%Y-%m-%d %H:%M")}}</td>
+                <td>{{info['size']}}</td>
+              </tr>
+            {% endfor %}
+          {% else %}
+            <tr>
+              <td colspan="6">업로드한 파일이 없습니다.</td>
+            </tr>
+          {% endif %}
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+{% endblock %}
