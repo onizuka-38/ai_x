@@ -45,6 +45,16 @@ def index():
     return render_template('home.html', 
                           form=form,
                           infos=infos)
-  
+
+@app.route('/delete/<filename>')
+def delete(filename):
+  os.remove(UPLOAD_FOLDER + filename) # 파일 삭제
+  # return redirect(url_for("index"))
+  return redirect("/")
+
+@app.route('/download/<filename>')
+def download(filename):
+  return send_file(UPLOAD_FOLDER + filename, 
+                  as_attachment=True) # 브라우저에서 파일이 열리지 않고 다운로드만 
 if __name__ == '__main__':
   app.run(debug=True)
