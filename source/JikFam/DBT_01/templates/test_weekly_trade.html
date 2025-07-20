@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>주간 거래 데이터 조회</title>
+</head>
+<body>
+  <h2>📊 주간 거래 데이터 조회</h2>
+
+  <form id="filter-form">
+    <label>품목:
+      <select id="item-select" name="item_code" required></select>
+    </label>
+
+    <label>품종:
+      <select id="variety-select" name="crop_full_code">
+        <option value="">전체</option>
+      </select>
+    </label>
+
+    <label>등급:
+      <select id="grade-select" name="grade">
+        <option value="">전체</option>
+        <option value="고">고</option>
+        <option value="중">중</option>
+        <option value="저">저</option>
+      </select>
+    </label>
+
+    <label>산지:
+      <select id="sanji-select" name="sanji_cd">
+        <option value="">전체</option>
+      </select>
+    </label>
+
+    <label>시작 주차:
+      <input type="text" id="start-week" name="start_week" placeholder="예: 202410" required>
+    </label>
+    <label>종료 주차:
+      <input type="text" id="end-week" name="end_week" placeholder="예: 202423" required>
+    </label>
+
+    <button type="submit">조회</button>
+  </form>
+
+  <hr>
+
+  <table border="1" id="result-table">
+    <thead>
+      <tr>
+        <th>주차</th><th>품목</th><th>품종</th><th>등급</th><th>산지</th><th>거래량(kg)</th><th>평균단가(원)</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+    <script>
+    // 품목 드롭다운 (이전 선택값 유지)
+    async function fetchItems() {
+      const select = document.getElementById('item-select');
+      const prevValue = select.value || '1201';
+      const res = await fetch('/api/items');
+      const items = await res.json();
+      select.innerHTML = items.map(i =>
+        `<option value="${i.item_code}" ${i.item_code === prevValue ? 'selected' : ''}>
+          ${i.gds_mclsf_nm}
+        </option>`
+      ).join('');
+    }
+
+    // 품종 드롭다운 (이전 선택값 유지)
+    async function fetchVarieties() {
+      const itemCode = document.getElementById('item-select').value;
+      const select = document.getElementById('variety-select');
+      const prevValue = select.value || '';
+      const startWeek = document.getElementById('start-week').value;
+      const endWeek = document.getElementById('end-week').value;
+      if (!itemCode || !startWeek || !endWeek) return;
+
+      const res = await fetch(
+        `/api/varieties?item_code=${itemCode}&start_week=${startWeek}&end_week=${endWeek}`
+      );
+      const varieties = await res.json();
+      select.innerHTML = `<option value="">전체</option>` +
+        varieties.map(v =>
+          `<option value="${v.crop_full_code}" ${v.crop_full_code === prevValue ? 'selected' : ''}>
+            ${v.gds_sclsf_nm}
+          </option>`
+        ).join('');
+    }
+
+    // 산지 드롭다운 (이전 선택값 유지)
+    async function fetchSanjis() {
+      const itemCode = document.getElementById('item-select').value;
+      const cropFullCode = document.getElementById('variety-select').value;
+      const select = document.getElementById('sanji-select');
+      const prevValue = select.value || '';
+      const startWeek = document.getElementById('start-week').value;
+      const endWeek = document.getElementById('end-week').value;
+      if (!itemCode || !startWeek || !endWeek) return;
+
+      let query = `?item_code=${itemCode}&start_week=${startWeek}&end_week=${endWeek}`;
+      if (cropFullCode) query += `&crop_full_code=${cropFullCode}`;
+      const res = await fetch(`/api/sanjis${query}`);
+      const sanjis = await res.json();
+      select.innerHTML = '<option value="">전체</option>' +
+        sanjis.map(s =>
+          `<option value="${s.j_sanji_cd}" ${s.j_sanji_cd === prevValue ? 'selected' : ''}>
+            ${s.j_sanji_nm}
+          </option>`
+        ).join('');
+    }
+
+    // 테이블에 데이터 출력
+    async function fetchWeeklyTrade(params) {
+      const query = new URLSearchParams(params).toString();
+      const res = await fetch(`/api/weekly_trade?${query}`);
+      const data = await res.json();
+      const tbody = document.querySelector('#result-table tbody');
+      if (!Array.isArray(data) || data.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7">데이터 없음</td></tr>';
+        return;
+      }
+      tbody.innerHTML = data.map(row => `
+        <tr>
+          <td>${row.weekno || '-'}</td>
+          <td>${row.gds_mclsf_nm || '-'}</td>
+          <td>${row.gds_sclsf_nm || '-'}</td>
+          <td>${row.grd_nm || '-'}</td>
+          <td>${row.j_sanji_nm || '-'}</td>
+          <td>${row.unit_tot_qty || '-'}</td>
+          <td>${row.avg_price || '-'}</td>
+        </tr>
+      `).join('');
+    }
+
+    // 폼 값 변경 이벤트 (조회용 X)
+    document.getElementById('item-select').addEventListener('change', () => {
+      fetchVarieties().then(fetchSanjis);
+    });
+    document.getElementById('variety-select').addEventListener('change', fetchSanjis);
+    document.getElementById('start-week').addEventListener('change', () => {
+      fetchVarieties().then(fetchSanjis);
+    });
+    document.getElementById('end-week').addEventListener('change', () => {
+      fetchVarieties().then(fetchSanjis);
+    });
+
+    // 조회(Submit) 시 → **옵션 갱신 없이** 데이터만 출력
+    document.getElementById('filter-form').addEventListener('submit', e => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const params = {};
+      formData.forEach((value, key) => {
+        if (value !== "") params[key] = value;
+      });
+      fetchWeeklyTrade(params);
+    });
+
+    // 초기 실행
+    async function initPage() {
+      const weekRes = await fetch('/api/latest_weeks');
+      const { start_week, end_week } = await weekRes.json();
+      document.getElementById('start-week').value = start_week;
+      document.getElementById('end-week').value = end_week;
+      await fetchItems();
+      await fetchVarieties();
+      await fetchSanjis();
+      // 페이지 로드시 기본 데이터 출력
+      const params = {
+        item_code: document.getElementById('item-select').value,
+        start_week: start_week,
+        end_week: end_week
+      };
+      fetchWeeklyTrade(params);
+    }
+    initPage();
+  </script>
+
+</body>
+</html>
