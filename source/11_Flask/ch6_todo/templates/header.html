@@ -1,0 +1,23 @@
+<header class="pb-3 mb-4 border-bottom d-flex justify-content-between">
+  <!-- 왼쪽: 로고와 사용자 이름 -->
+  <a href="/" class="d-flex text-dark text-decoration-none">
+    <img src="{{ url_for('static', filename='img/todo.png') }}" alt="logo" width="32" height="32" class="me-2">
+    <span class="fs-4">
+      {% if session.get('user_id') %}
+        {{ session['user_id'] }}({{ session['user_name'] }})님의 할 일
+      {% else %}
+        To-Do List
+      {% endif %}
+    </span>
+  </a>
+
+  <!-- 오른쪽: 로그인 / 로그아웃 / 회원가입 -->
+  <div>
+    {% if session.get('user_id') %}
+      <a href="{{ url_for('logout') }}" class="btn btn-outline-secondary me-2">로그아웃</a>
+    {% else %}
+      <a href="/" class="btn btn-outline-primary me-2">로그인</a>
+      <a href="" class="btn btn-outline-success">회원가입</a>
+    {% endif %}
+  </div>
+</header>
