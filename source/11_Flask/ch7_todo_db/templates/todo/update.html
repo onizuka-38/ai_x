@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="p-5 mb-4 bg-light rounded-3">
+  <div class="container-fluid py-5">
+    <h1 class="display-5 fw-bold">{{todo.id ~ '번 상세보기'}}</h1>
+    <table class="table table-info table-hover">
+      <tbody>
+        <tr>
+          <td>
+            <div class="input-group input-group-lg">
+              <span class="input-group-text">할 일</span>
+              <input type="text" class="form-control" 
+                      value="{{todo.content | default('') }}" id="content" required>
+            </div>
+            <div class="input-group input-group-lg">
+              <span class="input-group-text">수 행</span>
+              <select id="is_done" class="form-select">
+                <option
+                  {% if not todo.is_done %}
+                    selected
+                  {% endif %}
+                value="False"
+                >미완료</option>
+                <option
+                  {% if todo['is_done'] %}
+                    selected
+                  {% endif %}
+                  value="True"
+                >완료</option>
+              </select>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <button onclick="location='/todos'" class="btn btn-primary">목록</button>
+            <button class="btn btn-success update">수정</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<script>
+  document.getElementsByClassName('update')[0].addEventListener('click', ()=>{
+    const content = document.getElementById('content').value;
+    const is_done = document.getElementById('is_done').value;
+    const url = `/update/{{todo.id}}/${content}/${is_done}`;
+    fetch(url, {method:'PUT'})
+    .then(response => {
+      if(!response.ok){
+        alert(`실패 :${response.status} ${response.statusText}`);
+        return;
+      }
+      return response.text();
+    })
+    .then(data => {
+      alert(data);
+      location.href = `/todos/{{todo.id}}`; // 수정 후 해당 id 상세보기로 
+    })
+  });
+</script>
+{% endblock %}

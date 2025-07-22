@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+      <h1 class="display-5 fw-bold">To-Do list</h1>
+      {%if session['user_id'] %} {# 사용자가 로그인되어 있을 경우 #}
+      <form action="/create" method="post">
+        <input type="hidden" name="id" value="{{ next_id }}">
+        <div class="input-group mb-3">
+          <span class="input-group-text">{{ next_id }}</span>
+          <input type="text" class="form-control" placeholder="할일" name="content" required>
+          <input type="submit" class="btn btn-secondary btn-lg" value="등록">
+        </div>
+      </form>
+      {% endif %}
+    </div>
+    <table class="table table-info table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">할일</th>
+          <th scope="col">수행여부</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if todos %}
+          {% for todo in todos %}
+          <tr onclick="location.href='/todos/{{todo.id}}'">
+            <!--todo['id']를 todo.id로 가능하도록 Jinja2가 dict에서 key로 접근할 수 있도록 처리함-->
+            <th scope="row">{{todo.id}}</th>
+            <td>
+              {%if todo.is_done %}
+                <del>{{todo['content']}}</del>
+              {% else %}
+                <b>{{todo.content}}</b>
+              {% endif %}
+            </td>
+            <td>
+              {{'완료' if todo.is_done else '미완료'}}
+            </td>
+          </tr>
+          {% endfor %}
+        {% else %}
+          <tr>
+            <td colspan="3">아직 할일이 없습니다.</td>
+          </tr>
+        {% endif %}
+      </tbody>
+    </table>
+    <form action="" method="get">
+      <select name="order" onchange="this.form.submit()">
+        <option value="asc"
+          {% if order == 'asc' %}
+            selected="selected"
+          {% endif %}
+        >오름차순</option>
+        <option value="desc"
+          {% if order == 'desc' %}
+            selected="selected"
+          {% endif %}
+        >내리차순</option>
+      </select>
+    </form>
+  </div>
+{% endblock %}

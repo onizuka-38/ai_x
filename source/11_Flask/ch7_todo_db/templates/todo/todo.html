@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="p-5 mb-4 bg-light rounded-3">
+  <div class="container-fluid py-5">
+    <h1 class="display-5 fw-bold">{{todo.id ~ '번 상세보기'}}</h1>
+    <table class="table table-info table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">할일</th>
+          <th scope="col">수행여부</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">{{todo.id}}</th>
+          <td>
+            {%if todo.is_done %}
+              <del>{{todo['content']}}</del>
+            {% else %}
+              <b>{{todo.content}}</b>
+            {% endif %}
+          </td>
+          <td>
+            {{'완료' if todo.is_done else '미완료'}}
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <button onclick="location='/todos'" class="btn btn-primary">목록</button>
+            {%if session['user_id'] %} {# 사용자가 로그인되어 있을 경우 #}
+            <button onclick="location='/update/{{todo.id}}'" class="btn btn-success">수정</button>
+            <button class="btn btn-danger delete">삭제</button>
+            {% endif  %}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<script>
+  document.getElementsByClassName('delete')[0].addEventListener('click', ()=>{
+    const url = `/delete/{{todo.id}}`;
+    fetch(url, {method:'DELETE'})
+    .then(response => {
+      if(!response.ok){
+        alert(`실패 :${response.status} ${response.statusText}`);
+        return;
+      }
+      return response.text();
+    })
+    .then(data => {
+      alert(data);
+      location.href = `/todos`; // 삭제 후 목록로 
+    });
+  });
+</script>
+{% endblock %}
