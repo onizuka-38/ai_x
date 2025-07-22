@@ -92,3 +92,8 @@ Warning: NLS unused message: FindReplace_FindNextButton_label in: org.eclipse.ui
 > Start DBeaver Tasks - General UI [org.jkiss.dbeaver.tasks.ui 1.0.134.202506011722]
 2025-07-22 11:05:51.895 - Open external file(s) [[C:\ai_x\source\11_Flask\ch7_todo_db\database\todo.sql]]
 2025-07-22 11:05:55.441 - Execution context closed (scott, 2)
+2025-07-22 14:30:23.878 - Dispose navigator model
+2025-07-22 14:30:23.939 - DBeaver is stopping
+2025-07-22 14:30:23.941 - Stop instance server
+2025-07-22 14:30:24.947 - Instance server has been stopped
+2025-07-22 14:30:24.947 - DBeaver shutdown completed

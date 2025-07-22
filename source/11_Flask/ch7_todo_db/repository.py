@@ -30,8 +30,35 @@ def get_next_id() -> int:
   cursor.close()
   return result[0]
 
+def get_todo(id:int) -> dict:
+  cursor = conn.cursor()
+  sql = "SELECT * FROM TODO WHERE ID = :id"
+  cursor.execute(sql, {'id': id})
+  result = cursor.fetchone() # 튜플 (1, '바꿀내용', 0)
+  cursor.close()
+  return {'id': result[0], 'content': result[1], 'is_done': result[2]}
 
-if __name__ == '__main__':
-  print('/todos : ',get_todos('asc'))
-  print('next_id : ', get_next_id())
-  
+def create_todo(todo:TodoRequest) -> int:
+  cursor = conn.cursor()
+  sql = "INSERT INTO TODO (ID, CONTENTS, IS_DONE) VALUES (:id, :content, :is_done)"
+  cursor.execute(sql,
+                todo.model_dump()) # todo를 dict형태로 변환 {'id':1, ..}
+  conn.commit()
+  cursor.close()
+  return cursor.rowcount # 추가 성공시 1, 실패시 0
+
+def update_todo(todo:TodoRequest) -> int:
+  cursor = conn.cursor()
+  sql = "UPDATE TODO SET CONTENTS=:content, IS_DONE=:is_done WHERE ID=:id"
+  cursor.execute(sql, todo.model_dump())
+  conn.commit()
+  cursor.close()
+  return cursor.rowcount # 수정 성공시 1, 실패시 0
+
+def delete_todo(id:int) -> int:
+  cursor = conn.cursor()
+  sql = "DELETE FROM TODO WHERE ID=:id"
+  cursor.execute(sql, {'id': id})
+  conn.commit()
+  cursor.close()
+  return cursor.rowcount # 삭제 성공시 1, 실패시 0

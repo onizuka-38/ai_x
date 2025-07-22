@@ -7323,3 +7323,19 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -eclipse.keyring C:\Us
 
 !ENTRY org.eclipse.ui 2 2 2025-07-22 11:05:27.559
 !MESSAGE Invalid preference category path: org.eclipse.debug.ui.ConsolePreferencePage (bundle: org.eclipse.ui.console, page: org.eclipse.ui.internal.console.ansi.preferences.AnsiConsolePreferencePage)
+
+!ENTRY org.eclipse.ui.ide 4 4 2025-07-22 14:30:23.877
+!MESSAGE 작업공간 저장 문제점
+
+!ENTRY org.eclipse.ui.ide 4 1 2025-07-22 14:30:23.877
+!MESSAGE Workbench의 상태를 저장하려는 중에 문제점이 발생했습니다.
+!SUBENTRY 1 org.eclipse.ui.ide 4 1 2025-07-22 14:30:23.877
+!MESSAGE 내부 오류
+!STACK 0
+java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
+	at org.eclipse.core.internal.resources.SaveManager.forEachProjectInParallel(SaveManager.java:1827)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSave(SaveManager.java:1782)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1239)
+	at org.eclipse.core.internal.resources.Workspace.save(Workspace.java:2498)
+	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor.lambda$1(IDEWorkbenchAdvisor.java:555)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:124)
