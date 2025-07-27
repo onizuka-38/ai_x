@@ -1,0 +1,7 @@
+DB_USER=jikfarm1
+DB_PW=@wlrvkaAI1
+DB_HOST=119.67.228.140
+DB_PORT=3306
+DB_NAME=jikfarm_db
+
+유저이름과 PW만 변경해서 사용!

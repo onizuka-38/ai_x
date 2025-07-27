@@ -15,6 +15,8 @@ password = os.getenv("DB_PW")  # DB_pw → 대소문자 주의 (env 키명)
 port = int(os.getenv("DB_PORT"))
 db = os.getenv("DB_NAME")
 
+# 아래 내용 추가해서 터미널에 출력되는지 확인
+print(f"DB User: {user}, Host: {host}, Port: {port}, DB Name: {db}")
 
 def get_connection():
     return pymysql.connect(
