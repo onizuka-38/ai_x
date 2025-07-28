@@ -3,7 +3,7 @@
 # [KDT] 기업맞춤형 AI+X 융복합 인재 양성 공부일지 📖
 
 <p>AI와 데이터 분석, 웹 개발 기술을 아우르는 풀스택 개발자를 목표로 성장하고 있습니다.</p>
-<p>방문해주셔서 감사합니다! 👋</p>
+<p>방문해주셔서 감사합니다. 👋</p>
   
 </div>
 
@@ -34,7 +34,7 @@
 
 ---
 
-### 📊 GitHub 통계 (GitHub Stats)
+
 <div align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=onizuka-38&show_icons=true&theme=radical" alt="Anurag's GitHub stats" />
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=onizuka-38&layout=compact&theme=radical" alt="Top Langs" />
