@@ -1,2 +1,4 @@
 .env
 .ipynb_checkpoints/
+chroma/
+chroma_upstage/
