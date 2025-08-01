@@ -1,0 +1,11 @@
+허깅페이스는 트랜스포머 모델을 중심으로 한 다양한 사전 학습된 모델과 데이터셋을 제공하는 플랫폼이자 라이브러리입니다. 특히 pipeline은 복잡한 코드 없이 몇 줄만으로 감성 분석, 텍스트 생성 등 다양한 NLP 작업을 수행하게 해주는 매우 유용한 고수준 API입니다.
+
+from transformers import pipeline
+
+# 감성 분석 파이프라인 로드
+classifier = pipeline("sentiment-analysis")
+
+# 텍스트 분류 실행
+result = classifier("Hugging Face is easy to use!")
+print(result)
+# 출력: [{'label': 'POSITIVE', 'score': 0.9998...}]

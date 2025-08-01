@@ -1,0 +1,18 @@
+# 1. 어시스턴트 생성
+assistant = client.beta.assistants.create(model="gpt-4o", ...)
+
+# 2. 대화 스레드 생성
+thread = client.beta.threads.create()
+
+# 3. 스레드에 메시지 추가
+message = client.beta.threads.messages.create(
+    thread_id=thread.id,
+    role="user",
+    content="이 데이터 분석해 줘."
+)
+
+# 4. 어시스턴트 실행
+run = client.beta.threads.runs.create(
+    thread_id=thread.id,
+    assistant_id=assistant.id
+)
