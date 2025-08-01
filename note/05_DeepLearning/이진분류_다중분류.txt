@@ -1,0 +1,33 @@
+이진 분류 (Binary Classification)
+두 개의 클래스 중 하나를 예측하는 문제입니다. (예: 합격/불합격, 생존/사망, 당뇨병 발병/아님)
+
+주요 예시:
+
+피마 인디언 당뇨병 발병 예측
+
+심장병 발병 예측
+
+핵심 구성:
+
+모델 마지막 층 (Output Layer): Dense(1, activation='sigmoid') - 1개의 뉴런과 sigmoid 활성화 함수를 사용합니다.
+
+손실 함수 (Loss Function): binary_crossentropy - 실제 값과 예측 값의 차이를 계산하는 데 사용됩니다.
+
+데이터 분할: train_test_split을 사용하여 학습 데이터와 테스트 데이터를 나눕니다.
+
+다중 분류 (Multi-class Classification)
+세 개 이상의 클래스 중 하나를 예측하는 문제입니다. (예: 와인 등급, 붓꽃 품종)
+
+주요 예시:
+
+와인 품질 등급 예측
+
+붓꽃(Iris) 품종 분류
+
+핵심 구성:
+
+데이터 전처리: 레이블(정답) 데이터를 원-핫 인코딩 (One-Hot Encoding) 방식으로 변환해야 합니다. (to_categorical 함수 사용)
+
+모델 마지막 층 (Output Layer): Dense(클래스_개수, activation='softmax') - 클래스의 개수만큼 뉴런을 설정하고 softmax 활성화 함수를 사용합니다.
+
+손실 함수 (Loss Function): categorical_crossentropy - 다중 분류에 적합한 손실 함수입니다.
