@@ -1,0 +1,16 @@
+모델의 성능을 극대화하기 위해 하이퍼파라미터를 조정하는 과정입니다. 그리드 서치(Grid Search)는 개발자가 지정한 하이퍼파라미터 값의 모든 조합을 테스트하여 최적의 조합을 찾아주는 자동화된 기법입니다.
+
+from sklearn.model_selection import GridSearchCV
+
+# 테스트할 하이퍼파라미터 값들의 목록을 딕셔너리로 지정
+parameters = {'max_depth': [2, 3, 5, 10], 'min_samples_split': [2, 3, 5]}
+
+# 그리드 서치 객체 생성 (5-겹 교차 검증 수행)
+grid_dtree = GridSearchCV(dt_clf, param_grid=parameters, cv=5, refit=True)
+
+# 그리드 서치 학습 수행
+grid_dtree.fit(X_train, y_train)
+
+# 최적의 하이퍼파라미터와 그때의 정확도 출력
+print('최적 파라미터:', grid_dtree.best_params_)
+print(f'최고 정확도: {grid_dtree.best_score_:.4f}')

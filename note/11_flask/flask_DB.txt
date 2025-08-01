@@ -1,0 +1,13 @@
+SQLAlchemy를 사용하여 파이썬 클래스로 데이터베이스 테이블 구조를 정의합니다. ORM(객체-관계 매핑)을 통해 SQL 쿼리 없이 파이썬 코드로 데이터베이스를 조작할 수 있게 됩니다
+
+from flask_sqlalchemy import SQLAlchemy
+
+# SQLAlchemy 객체 생성
+db = SQLAlchemy()
+
+# 'User' 모델(테이블) 정의
+class User(db.Model):
+    __tablename__ = 'users' # 테이블명 지정
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)

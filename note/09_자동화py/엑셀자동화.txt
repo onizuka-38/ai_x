@@ -1,0 +1,12 @@
+자기가 엑셀을 열어서 편집함
+
+import xlwings as xw
+
+# 엑셀 실행 및 새 통합 문서 생성
+wb = xw.Book()
+
+# 'Sheet1' 시트를 활성화
+sheet = wb.sheets['Sheet1']
+
+# A1 셀에 값 입력
+sheet.range('A1').value = 'Hello, xlwings!'

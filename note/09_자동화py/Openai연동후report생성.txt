@@ -1,0 +1,18 @@
+from openai import OpenAI
+
+# OpenAI 클라이언트 초기화
+client = OpenAI()
+
+# API에 전달할 메시지 구성
+user_content = "다음 상품 리스트의 트렌드를 분석해줘: [맥북 프로, 맥북 에어, ...]"
+messages = [{"role": "user", "content": user_content}]
+
+# OpenAI Chat Completions API 호출
+response = client.chat.completions.create(
+    model="gpt-4o",
+    messages=messages
+)
+
+# 생성된 리포트 내용 출력
+report = response.choices[0].message.content
+print(report)

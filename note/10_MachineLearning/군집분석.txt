@@ -1,0 +1,13 @@
+비지도학습: 군집 분석 (Clustering)
+
+K-평균(K-Means) 알고리즘은 대표적인 군집 분석 방법입니다. 사용자가 지정한 군집의 수(K)만큼 중심점을 설정하고, 각 데이터는 가장 가까운 중심점에 할당되는 과정을 반복하여 군집을 형성합니다.
+
+from sklearn.cluster import KMeans
+
+# K=3으로 설정하여 KMeans 모델 생성 및 학습
+# n_clusters가 핵심 하이퍼파라미터입니다.
+kmeans = KMeans(n_clusters=3, random_state=0, n_init='auto')
+kmeans.fit(X_features)
+
+# 각 데이터 포인트가 속한 군집 레이블 확인
+print(kmeans.labels_)

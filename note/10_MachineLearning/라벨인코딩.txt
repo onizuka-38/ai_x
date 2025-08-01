@@ -1,0 +1,7 @@
+레이블 인코딩(Label Encoding)은 문자열로 된 카테고리형 데이터를 모델이 학습할 수 있도록 숫자형으로 변환하는 데 사용
+
+from sklearn.preprocessing import LabelEncoder
+
+# 'Item_Identifier'와 같은 문자열 피처를 숫자형으로 변환
+le = LabelEncoder()
+train['Item_Identifier'] = le.fit_transform(train['Item_Identifier'])

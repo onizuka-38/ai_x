@@ -1,0 +1,24 @@
+Flask 애플리케이션을 초기화하고, 앞에서 정의한 데이터베이스 모델과 커스텀 필터를 앱에 연결합니다. 라우팅 함수 내에서 데이터베이스를 쿼리하여 가져온 데이터를 템플릿으로 전달하는 역할을 합니다.
+
+from flask import Flask, render_template
+from models import db, User # 정의한 모델 임포트
+from filters import format_datetime # 정의한 필터 임포트
+
+app = Flask(__name__)
+
+# 데이터베이스 설정
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db.init_app(app)
+
+# 커스텀 필터 등록
+app.jinja_env.filters['datetime'] = format_datetime
+
+# 사용자 목록을 보여주는 페이지
+@app.route('/users')
+def user_list():
+    users = User.query.all() # 모든 사용자 데이터 조회
+    return render_template('users.html', user_list=users)
+
+if __name__ == '__main__':
+    app.run(debug=True)
