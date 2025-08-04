@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "home", # 앱등록
+    "wordcnt", # 앱등록
 ]
 
 MIDDLEWARE = [
