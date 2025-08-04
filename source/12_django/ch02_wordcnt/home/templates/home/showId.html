@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}ID출력{% endblock %}
+
+{% block content %}
+  <h1>{{msg}}</h1>
+  <h2>전달된 ID타입은 {{type}}</h2>
+  <button onclick="location='{% url 'index' %}'">처음으로</button>
+{% endblock %}
