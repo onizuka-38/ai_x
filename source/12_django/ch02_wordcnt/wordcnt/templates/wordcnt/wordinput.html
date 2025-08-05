@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}단어 입력{% endblock %}
+
+{% block content %}
+  <h1 onclick="location='/'">글자수 및 단어수 세기(처음으로)</h1>
+  <h1 onclick="location='{% url 'index' %}'">글자수 및 단어수 세기(처음으로)</h1>
+  <a href="/wordcnt/about">도움말</a>
+  <a href="{% url 'wordcnt:about' %}">도움말</a>
+  <!--<form action="{% url 'wordcnt:result' %}" method="POST">-->
+  <form action="/wordcnt/result" method="GET">
+    {# post 방식에서만 {% csrf_token %} form태그 내에 기입 #}
+    <textarea name="fulltxt" cols="40" rows="10"></textarea>
+    <input type="submit" value="계산결과">
+  </form>
+{% endblock %}

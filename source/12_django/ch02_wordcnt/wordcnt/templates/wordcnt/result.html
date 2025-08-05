@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}결과 페이지{% endblock %}
+
+{% block content %}
+  <button class="btn btn-primary btn-lg" onclick="location='{% url 'index' %}'">첫페이지로</button>
+  <button class="btn btn-primary btn-lg" onclick="location='{% url 'wordcnt:wordinput' %}'">글자입력</button>
+  <button class="btn btn-primary btn-lg" onclick="location='{% url 'wordcnt:about' %}'">ABOUT</button>
+  <hr>
+  <button class="btn btn-primary btn-lg" onclick="location='/'">첫페이지로</button>
+  <button class="btn btn-primary btn-lg" onclick="location='/wordcnt'">글자입력</button>
+  <button class="btn btn-primary btn-lg" onclick="location='/wordcnt/about'">ABOUT</button>
+  <hr>
+  <button type="button" class="btn btn-primary">
+    단어수 <span class="badge bg-secondary">{{ wordcnt }}</span>
+  </button>
+  <h1>글자수 : {{ strlength }}</h1>
+  <h1>단어수 : {{ wordcnt }}</h1>
+  <h5>입력한 text : {{ request.POST.fulltxt }}  {{fulltxt}}</h5>
+  {# 주석 #}
+  {% if dict %}
+    <h5> ~ 단어 카운트는 다음과 같습니다 ~</h5>
+    <!--[('홍길동',2),('아자',1)]-->
+    {% for key, value in dict %}
+        <span> {{key}} </span>: {{value}}<br>
+    {% endfor %}
+  {% else %}
+    <span>입력된 단어가 없어요</span>
+  {% endif %}
+{% endblock %}
