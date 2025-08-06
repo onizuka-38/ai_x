@@ -1,0 +1,17 @@
+for s in qs:
+     print(s)
+
+qs =Student.objects.filter(age__lt=30) # 필터로 읽기
+__lt : 보다 작다
+__lte : 보다 작거나 같다
+__gt : ~보다 크다
+__gte : ~보다 크거나 같다
+__isnull : null인자료
+__contains : 특정 문자열 포함 name__contains = ‘k’
+qs = Student.objects.order_by(‘age’) # age 필터 기준으로 오름차순 정렬 가져옴
+qs = Student.objects.order_by(‘-age’) # age 필터 기준으로 내림차순 정렬 가져옴
+qs = Student.objects.get(name=‘kim’)
+qs.age = 40 # 데이터 수정 UPDATE
+qs.save()
+qs = Student.objects.get(name=‘hong’)
+qs.delete() # 데이터 삭제 DELETE

@@ -8,4 +8,4 @@ class Student(models.Model):
     age = models.IntegerField(default=0)
     grade = models.IntegerField(default=1)
     def __str__(self):
-        return f"{self.id} : {self.name} ({self.major}), {self.grade}학년 {self.age}세"
+        return f"{self.id} : {self.name} ({self.major}, {self.grade}학년 {self.age}세)"

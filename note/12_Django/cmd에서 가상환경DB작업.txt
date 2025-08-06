@@ -1,0 +1,34 @@
+C:\ai_x\source\12_django\ch03_orm>.venv\Scripts\activate
+
+(.venv) C:\ai_x\source\12_django\ch03_orm>python manage.py shell
+7 objects imported automatically (use -v 2 for details).
+
+Python 3.10.9 | packaged by Anaconda, Inc. | (main, Mar  1 2023, 18:18:15) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from student.models import Student
+>>> st = Student(name='kim', major='ai', age=30)
+>>> print(st)
+None : kim (ai, 1학년 30세)
+>>> st.save()
+>>> st
+<Student: 3 : kim (ai, 1학년 30세)>
+>>> st = Student(name='lee', major='com', age=35)
+>>> st
+<Student: None : lee (com, 1학년 35세)>
+>>> st.save()
+>>> st
+<Student: 4 : lee (com, 1학년 35세)>
+>>> qs = Student.objects.all()
+>>> qs
+<QuerySet [<Student: 1 : 홍길동 (경영정보학과, 1학년 20세)>, <Student: 2 : 김길동 (AI학과, 1학년 25세)>, <Student: 3 : kim (ai, 1학년 30세)>, <Student: 4 : lee (com, 1학년 35세)>]>
+>>> qs[0]
+<Student: 1 : 홍길동 (경영정보학과, 1학년 20세)>
+>>> qs[0].name
+'홍길동'
+>>> qs = Student.objects.get(name='kim')
+>>> qs
+<Student: 3 : kim (ai, 1학년 30세)>
+>>> qs = Student.objects.get(id=1)
+>>> qs
+<Student: 1 : 홍길동 (경영정보학과, 1학년 20세)>
