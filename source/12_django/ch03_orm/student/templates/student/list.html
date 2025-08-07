@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Welcome Page{% endblock %}
+
+{% block content %}
+  <!-- Django 메시지를 Bootstrap Alert로 표시 -->
+  {% if messages %}
+    {% for message in messages %}
+      {% if message.tags == 'success' %}
+        <div class="alert alert-success alert-dismissible fade show">
+          ✅ {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+      {% elif message.tags == 'error' %}
+        <div class="alert alert-danger alert-dismissible fade show">
+          ❌{{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% endif %}  
+  <!--students 출력-->
+  {% if students %}
+      <table class="table table-warning table-striped">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">이름</th>
+            <th scope="col">전공(학년)</th>
+            <th scope="col">나이</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for student in students %}
+          <tr onclick="location='/student/get/{{student.id}}'">
+            <th scope="row">{{student.id}}</th>
+            <td>{{student.name}}</td>
+            <td>{{student.major}}({{student.grade}})</td>
+            <td>{{student.age}}살</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+  {% else %}
+      <table class="table table-secondary">
+        <tr><td>등록된 학생이 없습니다</td></tr>
+      </table>
+  {% endif %}
+{% endblock %}

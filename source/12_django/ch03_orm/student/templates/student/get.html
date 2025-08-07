@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}상세보기{% endblock %}
+{% block content %}
+    <table class="table table-warning table-striped">
+      <tbody>
+        <tr>
+          <th>id</th>
+          <td>{{student.id}}</td>
+        </tr>
+        <tr>
+          <th>name</th>
+          <td>{{student.name}}</td>
+        </tr>
+        <tr>
+          <th>major(학년)</th>
+          <td>{{student.major}}({{student.grade}}학년)</td>
+        </tr>
+        <tr>
+          <th>age</th>
+          <td>{{student.age}}살</td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" class="btn btn-primary"
+      onclick="location='{% url 'student:list' %}'">
+      목록
+    </button>
+    <button type="button" class="btn btn-primary"
+      onclick="location='{% url 'student:del' student.id %}'"> 
+      삭제
+    </button>
+{% endblock %}
