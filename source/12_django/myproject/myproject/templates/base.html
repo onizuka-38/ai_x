@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <style>
+    body {position: relative;}
+  </style>
+  {% load static %}
+  <link href="{% static 'img/brand.png' %}" rel="icon">
+  <link href="{% static 'css/ex.css' %}" rel="stylesheet">
+  <title>{% block title %}{% endblock %}</title>
+  <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+  {%include "header.html"%}
+  <div class="container">
+    {% block content %}
+    {% endblock %}
+  </div>
+  {% include "footer.html" with year=2025 %}
+</body>
+</html>

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}post list{% endblock %}
+{% block content %}
+<!-- Django 메시지를 Bootstrap Alert로 표시 -->
+  {% if messages %}
+    {% for message in messages %}
+      {% if message.tags == 'success' %}
+        <div class="alert alert-success alert-dismissible fade show">
+          ✅ {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+      {% elif message.tags == 'error' %}
+        <div class="alert alert-danger alert-dismissible fade show">
+          ❌{{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
+
+{% if post_list %}
+    <ul>
+    {% for post in post_list %}
+      <li>
+        {% comment %} <a href="/blog/{{post.id}}/">{{post.id}}.{{post.title}}</a> {% endcomment %}
+        <a href="{% url 'blog:detail' post.id %}">{{post.id}}.{{post.title}}</a>
+        {{post.create_at}} post함 {{post.update_at|date:"y/m/d H:i"}} 최종수정
+        {{post.update_at|date:"y/m/d a h:i"}}
+      </li>
+    {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}{{post.id}}번 post{% endblock %}
+{% block content %}
+  {% if post %}
+    <h2>{{post.id}}.{{post.title}}</h2>
+    <p>
+      {{post.content}}<br>
+      {{post.content | truncatechars:20 }}<br>
+      <span>{{post.create_at | date:"Y-m-d"}}</span>
+      <span>{{post.update_at | date:"y-m-d A h:i:s"}}</span>
+      <span>{{post.update_at | date:"y-m-d H:i:s"}}</span>
+    </p>
+    <h4>댓글 : {{ post.comment_set.all | length }}개</h4>
+   
+  {% else %}
+    <p>No post</p>
+  {% endif %}
+  <button class="btn btn-primary"
+      onclick="location='{% url 'blog:index' %}'">
+    목록
+  </button>
+{% endblock %}
