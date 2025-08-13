@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_extensions", # 추가 앱 등록(django 5.2부터는 shell에도 model 자동 import)
     "blog",
+    'accounts',
 ]
 
 MIDDLEWARE = [

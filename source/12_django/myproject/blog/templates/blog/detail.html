@@ -11,7 +11,19 @@
       <span>{{post.update_at | date:"y-m-d H:i:s"}}</span>
     </p>
     <h4>댓글 : {{ post.comment_set.all | length }}개</h4>
-   
+    {% for comment in post.comment_set.all %}
+      <h6>
+        {{comment.message}}
+        <span>by {{comment.author}} at {{comment.update_at | date:'y-m-d H:i'}}</span>
+      </h6>
+    {% endfor %}
+    {% comment %} 태그 리스트 출력(태그 없을 경우 없음 출력) {% endcomment %}
+    {% for tag in post.tags.all %}  
+      #<b>{{tag.name}}</b>
+    {% empty %}  
+      <h6>등록된 태그가 없습니다</h6>
+    {% endfor%}
+    <br>
   {% else %}
     <p>No post</p>
   {% endif %}
