@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}책 등록{% endblock %}
+
+{% block content %}
+  <form action="" method="post">
+    {% csrf_token %}
+    <table class="table">
+      {% comment %} <tr><td>제목</td><td><input type="text" name="title"></td></tr>
+      <tr><td>저자</td><td><input type="text" name="author"></td></tr>
+      <tr><td>출판사</td><td><input type="text" name="publisher"></td></tr>
+      <tr><td>가격</td><td><input type="number" name="sales"></td></tr> {% endcomment %}
+      {{form.as_table}}
+      <tr>
+        <td colspan="2" class="text-center">
+          <input type="submit" value="저장">
+          <input type="button" value="목록"
+          onclick="location='{% url 'book:list'%}'">
+        </td>
+      </tr>
+    </table>
+  </form>
+{% endblock %}
