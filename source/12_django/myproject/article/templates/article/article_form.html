@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}기사 등록{% endblock %}
+
+{% block content %}
+  <form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table class="table">
+      {{form.as_table}}
+      <tr>
+        <td colspan="2" class="text-center">
+          <input type="submit" value="등록">
+          <input type="button" value="목록"
+        onclick="location='{% url 'article:list'%}'">
+        </td>
+      </tr>
+    </table>
+  </form>
+{% endblock %}

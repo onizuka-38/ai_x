@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block title %}article List{% endblock %}
+
+{% block content %}
+  {% for article in article_list %}
+    <li>
+        {{article.id}}.{{article.title}} / {{article.status}}
+        <a href="{% url 'article:detail' article.id %}">[상세]</a>
+        <a href="{% url 'article:edit' article.id %}">[수정]</a>
+        <a href="{% url 'article:delete' article.id %}">[삭제]</a>
+    </li>
+  {% empty %}
+    <p>기사 목록이 없습니다</p>
+  {% endfor %}
+  <a href="{% url 'article:new' %}">[article 추가]</a>
+  <!-- 페이징 -->
+  {% if page_obj and page_obj.paginator.num_pages > 1 %}
+    <nav class="pagination-nav">
+      <div class="pagination-info">
+        {{ page_obj.number }} / {{ page_obj.paginator.num_pages }} 페이지 
+        (총 {{ page_obj.paginator.count }}개)
+      </div>
+      
+      <div class="pagination-controls">
+        <!-- 이전 버튼들 -->
+        {% if page_obj.has_previous %}
+          <a href="?page=1" class="page-btn">처음</a>
+          <a href="?page={{ page_obj.previous_page_number }}" class="page-btn">이전</a>
+        {% endif %}
+        
+        <!-- 페이지 번호들 -->
+        {% for num in page_obj.paginator.page_range %}
+          {% if num == page_obj.number %}
+            <span class="page-btn current">{{ num }}</span>
+          {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+            <a href="?page={{ num }}" class="page-btn">{{ num }}</a>
+          {% elif num == 1 or num == page_obj.paginator.num_pages %}
+            {% if num != page_obj.number %}
+              <a href="?page={{ num }}" class="page-btn">{{ num }}</a>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+        
+        <!-- 다음 버튼들 -->
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}{% if q %}&q={{ q }}{% endif %}" class="page-btn">다음</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}{% if q %}&q={{ q }}{% endif %}" class="page-btn">마지막</a>
+        {% endif %}
+      </div>
+    </nav>
+  {% endif %}
+
+<style>
+  /* 페이징 */
+.pagination-nav {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.pagination-info {
+    margin-bottom: 10px;
+    color: #6c757d;
+    font-size: 14px;
+}
+
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.page-btn {
+    padding: 8px 12px;
+    text-decoration: none;
+    border: 1px solid #dee2e6;
+    background-color: white;
+    color: #007cba;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.page-btn:hover {
+    background-color: #f8f9fa;
+    border-color: #007cba;
+}
+
+.page-btn.current {
+    background-color: #007cba;
+    color: white;
+    border-color: #007cba;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .search-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .article-item {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+    }
+    
+    .article-actions {
+        justify-content: center;
+    }
+    
+    .pagination-controls {
+        gap: 2px;
+    }
+    
+    .page-btn {
+        padding: 6px 8px;
+        font-size: 12px;
+    }
+}
+</style>
+{% endblock  %}

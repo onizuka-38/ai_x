@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}기사 등록{% endblock %}
+
+{% block content %}
+  <h2>{{article.id}}.{{article.title}}</h2>
+  <p>
+    {{article.body | linebreaks }} <!-- 줄바꿈을 br태그로 교체 필터-->
+    - status:
+    {% if article.status == 'd' %}
+      <b>Draft</b>
+    {% elif article.status == 'p' %}
+      <b>published</b>
+    {% else %}
+      <b>Withdrawn</b>
+    {% endif %}
+    <br>
+    {% if article.photo %}
+      <img src="/media/{{article.photo}}" width="200">
+      <img src="{{article.photo.url}}" width="200">
+    {% else %}
+      <img src="/static/img/noImg.png">
+      {% load static %}
+      <img src="{% static 'img/noImg.png' %}">
+    {% endif %}
+  </p>
+  <p>
+    <a href="{% url 'article:list' %}">[목록]</a>
+    <a href="{% url 'article:new' %}">[추가]</a>
+    <a href="{% url 'article:edit' article.id %}">[수정]</a>
+    <a href="{% url 'article:delete' article.id %}">[삭제]</a>
+  </p>
+{% endblock %}

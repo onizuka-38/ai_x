@@ -24,4 +24,5 @@ urlpatterns = [
     path("", lambda req : redirect("blog:index")),
     path("blog/", include("blog.urls")),
     path("book/", include("book.urls")),
+    path("article/", include("article.urls"))
 ]

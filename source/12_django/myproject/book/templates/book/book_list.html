@@ -9,14 +9,13 @@
     <li>
       {{book.id}}.{{book.title}} / {{book.author}}著 / {{book.sales|intcomma }}원 /
       from {{book.ip}}
-      <a href="/book/{{book.id}}/edit">[수정]</a>
-      <a href="/book/{{book.id}}/delete">[삭제]</a>
-      {% comment %} <a href="{% url 'book:edit' book.id %}">[수정]</a>
-      <a href="{% url 'book:delete' book.id %}">[삭제]</a> {% endcomment %}
+      {% comment %} <a href="/book/{{book.id}}/edit">[수정]</a>
+      <a href="/book/{{book.id}}/delete">[삭제]</a> {% endcomment %}
+      <a href="{% url 'book:edit' book.id %}">[수정]</a>
+      <a href="{% url 'book:delete' book.id %}">[삭제]</a>
     </li>
   {% empty %}
     <p>도서 목록이 없습니다</p>
   {% endfor %}
-  <a href="/book/new">[BOOK 추가]</a>
-  {% comment %} <a href="{% url 'book:new' %}">[BOOK 추가]</a> {% endcomment %}
+  <a href="{% url 'book:new' %}">[BOOK 추가]</a>
 {% endblock  %}

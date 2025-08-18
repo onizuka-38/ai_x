@@ -16,11 +16,9 @@
                 <li class="nav-item">
                     <a class="nav-link {% if request.path == '/blog/' %}active{% endif %}" href="/blog/">BLOG</a>
                 </li>
-                {% comment %}
                 <li class="nav-item">
                     <a class="nav-link {% if request.path == '/article/' %}active{% endif %}" href="{% url 'article:list' %}">Article</a>
                 </li>
-                {% endcomment %}
                 <li class="nav-item">
                     <a class="nav-link {% if request.path == '/book/' %}active{% endif %}" href="{% url 'book:list' %}">Book</a>
                 </li>                

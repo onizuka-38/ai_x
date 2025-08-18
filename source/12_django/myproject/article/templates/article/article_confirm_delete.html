@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}책 등록{% endblock %}
+
+{% block content %}
+<div class="container-fluid py-5">
+  <h1 class="display-5 fw-bold">삭제 확인</h1>
+  <p class="col-md-8 fs-4">정말로 "{{ object }}" 항목을 삭제하시겠습니까?</p>
+  <form action="" method="post">
+    {% csrf_token %}
+    <input class="btn btn-primary btn-lg" type="submit" value="삭제">
+    <input  class="btn btn-primary btn-lg" type="button" onclick="location='{{object.get_absolute_url}}'" value="취소">
+  </form>
+</div>
+{% endblock %}
