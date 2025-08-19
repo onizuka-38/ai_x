@@ -6,6 +6,12 @@
   {% for article in article_list %}
     <li>
         {{article.id}}.{{article.title}} / {{article.status}}
+        <!--article.photo가 있을 경우 fileup.jpg 표시 -->
+        {% if article.photo %}
+          {% comment %} <img src="/static/article/fileup.jpg" style="width:15px"> {% endcomment %}
+          {% load static %}
+          <img src="{% static 'article/fileup.jpg' %}" style="width:15px">
+        {% endif %}
         <a href="{% url 'article:detail' article.id %}">[상세]</a>
         <a href="{% url 'article:edit' article.id %}">[수정]</a>
         <a href="{% url 'article:delete' article.id %}">[삭제]</a>
