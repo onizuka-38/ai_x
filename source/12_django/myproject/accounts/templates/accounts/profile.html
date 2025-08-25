@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1> {{user}}'s Profile </h1>
+<ul>
+    <li> username : {{user}} / {{profile.user}}</li>
+    <li> email : {{user.email}} / {{profile.user.email}}</li>
+    <li> is_staff : {{user.is_staff}}</li>
+    <li> is_superuser : {{user.is_superuser}}</li>
+    <li> join_date : {{user.date_joined}}</li>
+    <li> tel : {{profile.phone_number}}</li>
+    <li> address : {{profile.address}}</li>
+</ul>
+{% if is_new_profile %}
+    <div class="alert alert-info">
+        <p>새로 생성된 프로필입니다. 정보를 업데이트해주세요!</p>
+    </div>
+{% endif %}
+{% endblock %}

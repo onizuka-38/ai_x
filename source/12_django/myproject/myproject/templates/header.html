@@ -31,26 +31,26 @@
             <ul class="navbar-nav">
                 {% if not user.is_authenticated %}
                     {% comment %} 로그인상태가 아닐때 {% endcomment %}
-                    {% comment %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'signup' %}">회원 가입</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'login' %}?next={{ request.path }}">로그인</a>
                     </li>
-                    {% endcomment %}
                 {% else %}
                     <li class="nav-item">
                         <a class="nav-link" href="#">{{ user }}님</a>
                     </li>
-                    {% comment %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'profile' %}">프로필</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'logout' %}?next={{ request.path }}">로그아웃</a>
+                        {% comment %} <a class="nav-link" href="{% url 'logout' %}">로그아웃</a> {% endcomment %}
+                        <form method="post" action="{% url 'logout' %}?next={{ request.path }}">
+                            {% csrf_token %}
+                            <button class="nav-link" type="submit">로그아웃</button>
+                        </form>
                     </li>
-                    {% endcomment %}
                 {% endif %}
             </ul>
         </div>
