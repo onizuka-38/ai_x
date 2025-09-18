@@ -33,9 +33,3 @@
 <br>
 
 ---
-
-
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=onizuka-38&show_icons=true&theme=radical" alt="Anurag's GitHub stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=onizuka-38&layout=compact&theme=radical" alt="Top Langs" />
-</div>
